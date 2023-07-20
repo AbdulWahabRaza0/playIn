@@ -2,7 +2,9 @@ import styled from "styled-components";
 import { useMediaQuery } from "react-responsive";
 import { Col, Row } from "react-bootstrap";
 import Marquee from "react-fast-marquee";
-import { H3 } from "./Typography";
+import Typewriter from "typewriter-effect";
+import { H1 } from "./Typography";
+import Image from "next/image";
 interface WrapperProps {
   width?: string;
   border?: string;
@@ -21,7 +23,10 @@ interface WrapperProps {
   pe?: string;
   pt?: string;
   pb?: string;
+  p?: string;
   zIndex?: any;
+  ls?: string;
+  lHeight?: string;
   position?: string;
   top?: any;
 }
@@ -42,8 +47,11 @@ const Wrapper = styled.div<WrapperProps>`
   padding-right: ${(props) => (props.pe ? props.pe : "")};
   padding-top: ${(props) => (props.pt ? props.pt : "")};
   padding-bottom: ${(props) => (props.pb ? props.pb : "")};
+  padding: ${(props) => (props.p ? props.p : "")};
+  letter-spacing: ${(props) => (props.ls ? props.ls : "")};
   z-index: ${(props) => props.zIndex && props.zIndex};
   position: ${(props) => props.position && props.position};
+  line-height: ${(props) => props.lHeight && props.lHeight};
   top: ${(props) => props.top && props.top};
   &:hover {
     background: ${(props) => props.hoverBg && props.hoverBg};
@@ -55,6 +63,19 @@ const Container = ({ children }: any) => {
       <Wrapper ps="3.29%" pe="3.4%" pt="30px" pb="1%">
         {children}
       </Wrapper>
+    </>
+  );
+};
+const TypeWriterComp = ({ text }: any) => {
+  return (
+    <>
+      <Typewriter
+        options={{
+          strings: [text],
+          autoStart: true,
+          loop: true,
+        }}
+      />
     </>
   );
 };
@@ -72,27 +93,41 @@ const MarqueeSlider = ({ children }: any) => {
     </>
   );
 };
-const SplitScreen = () => {
+
+const SimpleCard = ({ imgSrc, text }: any) => {
+  const isResponsive = useMediaQuery({
+    query: "(max-width: 752px)",
+  });
   return (
     <>
-      <Row className="text-center align-items-center">
-        <Col md={6}>
-          <H3>
-            IN GAME XP TO
-            <br /> REAL MONEY
-          </H3>
-        </Col>
-        <Col md={6}>
-          <Wrapper className="d-flex flex-column align-items-center justify-content-center">
-            <Wrapper>
-              You must reach the Daily PLEX Rewards Target. Win or Lose, PLEX is
-              earned.
-            </Wrapper>
-            <Wrapper>Pakistan</Wrapper>
-            <Wrapper>Pakistan</Wrapper>
-          </Wrapper>
-        </Col>
-      </Row>
+      <Wrapper
+        width="80%"
+        height="auto"
+        border="2px solid gray"
+        pt="30px"
+        pb="30px"
+        ps="30px"
+        pe="30px"
+        className={`d-flex flex-row align-items-center ${
+          isResponsive
+            ? "justify-content-center flex-wrap"
+            : "justify-content-betweem"
+        }`}
+      >
+        <Wrapper ms="5%" me="5%">
+          <img src={imgSrc} alt="header1" />
+        </Wrapper>
+        <Wrapper
+          ms="5%"
+          me="5%"
+          mt={isResponsive ? "" : ""}
+          className={isResponsive ? "text-center" : "text-start"}
+          fontSize={isResponsive ? "21px" : "24px"}
+          weight="200"
+        >
+          {text}
+        </Wrapper>
+      </Wrapper>
     </>
   );
 };
@@ -100,8 +135,9 @@ export {
   Wrapper,
   useMediaQuery,
   MarqueeSlider,
-  SplitScreen,
+  SimpleCard,
   Row,
   Col,
   Container,
+  TypeWriterComp,
 };
