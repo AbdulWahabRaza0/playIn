@@ -206,9 +206,9 @@ export default function Home() {
               </MarqueeSlider>
             </Wrapper>
             <Wrapper id="section-3" mt={isResponsive ? "15%" : "10%"}>
-              <Wrapper ps={"5%"}>
+              <Wrapper ps={"5rem"}>
                 <Wrapper>
-                  <Wrapper mb="5%">
+                  <Wrapper mb="5rem">
                     <H1
                       fontSize={isResponsive ? "31px" : "51px"}
                       family="'Poppins','sans-serif'"
