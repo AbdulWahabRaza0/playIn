@@ -206,91 +206,92 @@ export default function Home() {
               </MarqueeSlider>
             </Wrapper>
             <Wrapper id="section-3" mt={isResponsive ? "15%" : "10%"}>
-              <Wrapper ps={"5rem"}>
-                <Wrapper>
-                  <Row className="text-center align-items-center flex-wrap-reverse">
-                    <Col md={6} sm={6} lg={6}>
-                      <Wrapper className="d-flex flex-column gap-4">
-                        {Section2Data.map((val, index) => {
-                          return (
-                            <>
-                              <Wrapper key={index}>
+              <Wrapper
+                ps={isResponsive ? "1.5rem" : "5rem"}
+                // className="d-flex flex-row align-items-center justify-content-center"
+              >
+                <Row className="text-center align-items-center flex-wrap-reverse">
+                  <Col md={6} sm={6} lg={6}>
+                    <Wrapper width="100%" className="d-flex flex-column gap-4">
+                      {Section2Data.map((val, index) => {
+                        return (
+                          <>
+                            <Wrapper key={index}>
+                              <Wrapper
+                                className="d-flex flex-row align-items-center justify-content-between"
+                                pt="40px"
+                                pb="40px"
+                                ps="20px"
+                                pe="20px"
+                                width="90%"
+                                bg={index === questionState ? "#db5c4d" : ""}
+                                border="1px solid white"
+                              >
+                                <Wrapper className="text-start">
+                                  <H1
+                                    ls="1px"
+                                    fontSize={isResponsive ? "21px" : "27px"}
+                                    family="'Poppins','sans-serif'"
+                                  >
+                                    {val.heading}
+                                  </H1>
+                                </Wrapper>
+                                <Wrapper ms="10%">
+                                  {index == questionState ? (
+                                    <RemoveIcon
+                                      onClick={() => {
+                                        setQuestionState(-1);
+                                      }}
+                                      style={{
+                                        fontSize: "31px",
+                                        cursor: "pointer",
+                                      }}
+                                    />
+                                  ) : (
+                                    <AddIcon
+                                      onClick={() => {
+                                        setQuestionState(index);
+                                      }}
+                                      style={{
+                                        fontSize: "31px",
+                                        cursor: "pointer",
+                                      }}
+                                    />
+                                  )}
+                                </Wrapper>
+                              </Wrapper>
+                              {index === questionState && (
                                 <Wrapper
-                                  className="d-flex flex-row align-items-center justify-content-between"
+                                  width="90%"
                                   pt="40px"
                                   pb="40px"
                                   ps="20px"
                                   pe="20px"
-                                  width="90%"
-                                  bg={index === questionState ? "#db5c4d" : ""}
                                   border="1px solid white"
+                                  family="'Organeto','sans-serif'"
+                                  className="text-start"
+                                  fontColor="gray"
+                                  fontSize="16px"
                                 >
-                                  <Wrapper className="text-start">
-                                    <H1
-                                      ls="1px"
-                                      fontSize={isResponsive ? "21px" : "27px"}
-                                      family="'Poppins','sans-serif'"
-                                    >
-                                      {val.heading}
-                                    </H1>
-                                  </Wrapper>
-                                  <Wrapper ms="10%">
-                                    {index == questionState ? (
-                                      <RemoveIcon
-                                        onClick={() => {
-                                          setQuestionState(-1);
-                                        }}
-                                        style={{
-                                          fontSize: "31px",
-                                          cursor: "pointer",
-                                        }}
-                                      />
-                                    ) : (
-                                      <AddIcon
-                                        onClick={() => {
-                                          setQuestionState(index);
-                                        }}
-                                        style={{
-                                          fontSize: "31px",
-                                          cursor: "pointer",
-                                        }}
-                                      />
-                                    )}
-                                  </Wrapper>
+                                  {val.desc}
                                 </Wrapper>
-                                {index === questionState && (
-                                  <Wrapper
-                                    width="90%"
-                                    pt="40px"
-                                    pb="40px"
-                                    ps="20px"
-                                    pe="20px"
-                                    border="1px solid white"
-                                    family="'Organeto','sans-serif'"
-                                    className="text-start"
-                                    fontColor="gray"
-                                    fontSize="16px"
-                                  >
-                                    {val.desc}
-                                  </Wrapper>
-                                )}
-                              </Wrapper>
-                            </>
-                          );
-                        })}
-                      </Wrapper>
-                    </Col>
-                    <Col md={6}>
-                      <Image
-                        src="/assets/question.gif"
-                        alt="question"
-                        className="img-fluid"
-                        width={isResponsive ? 300 : 600}
-                        height={700}
-                      />
-                    </Col>
-                  </Row>
-                </Wrapper>
+                              )}
+                            </Wrapper>
+                          </>
+                        );
+                      })}
+                    </Wrapper>
+                  </Col>
+                  <Col md={6}>
+                    <Image
+                      src="/assets/question.gif"
+                      alt="question"
+                      className="img-fluid"
+                      width={isResponsive ? 300 : 600}
+                      height={700}
+                    />
+                  </Col>
+                </Row>
               </Wrapper>
             </Wrapper>
             <Spacer height="100vh" />
