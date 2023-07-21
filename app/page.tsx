@@ -17,19 +17,32 @@ import { H1, P } from "@/components/Typography";
 import { PrimaryButton } from "@/components/Buttons";
 import AddIcon from "@mui/icons-material/Add";
 import RemoveIcon from "@mui/icons-material/Remove";
+import ShopIcon from "@mui/icons-material/Shop";
 import "bootstrap/dist/css/bootstrap.min.css";
 const Header1Data = [
   {
-    // imgSrc: "/assets/bullet.png",
-    text: "Earn Incentives for Your Exceptional Content.",
+    headline: "Effortless Summaries",
+    text: "Enter any article and recieve three types of AI generated summaries.",
   },
   {
-    // imgSrc: "/assets/header1coins.svg",
-    text: "Experience Professional AI-Powered Assistance",
+    headline: "AI Image Generation",
+    text: "Auralnexus creates captivating images for your articles using advanced AI technologes.",
   },
   {
-    // imgSrc: "/assets/header1staked.svg",
-    text: "Streamline Article Generation with Thumbnail, Summaries, Tags, and Audio Features.",
+    headline: "Smart article tags",
+    text: "Let auralnexus suggest relevent tags, and customize them to optimize your content.",
+  },
+  {
+    headline: "Edit and Enhance",
+    text: "Edit summaries and tags to perfection, tailoring them to your prefrences.",
+  },
+  {
+    headline: "Publish with AI",
+    text: "Empower your writing with AI generated responses for unique and engaging articles.",
+  },
+  {
+    headline: "Famous voices",
+    text: "Listen to your published articles narrated by celebrities like Elon Musk, Kavin Hart and more.",
   },
 ];
 const Section2Data = [
@@ -48,6 +61,18 @@ const Section2Data = [
   {
     heading: "Can I include images in my articles?",
     desc: "Absolutely! Our website supports image integration, allowing you to enrich your articles with visually appealing graphics. Enhance the readability and engagement of your content with relevant images that complement your text.",
+  },
+];
+const TeamData = [
+  {
+    profile: "/assets/haider.jpg",
+    name: "Haider Sattar",
+    desc: "CTO Authornate",
+  },
+  {
+    profile: "/assets/authornate.jpg",
+    name: "Authornate",
+    desc: "FS Team",
   },
 ];
 export default function Home() {
@@ -138,8 +163,58 @@ export default function Home() {
                 </H1>
               </MarqueeSlider>
             </Wrapper>
-
-            <Wrapper mt={"10%"}>
+            <Wrapper id="section-2" mt={"10%"}>
+              <H1
+                className="text-center mb-5"
+                fontSize="51px"
+                family="'Poppins','sans-serif'"
+                color="#db5c4d"
+              >
+                What we do?
+              </H1>
+              <Wrapper className="d-flex flex-row align-items-center justify-content-center flex-wrap gap-3">
+                {Header1Data.map((val, index) => {
+                  return (
+                    <>
+                      <Wrapper
+                        border="1px solid gray"
+                        pt="20px"
+                        pb="20px"
+                        ps="20px"
+                        pe="20px"
+                        borderRadius="10px"
+                        height="200px"
+                        width={isResponsive ? "300px" : "400px"}
+                      >
+                        <Wrapper
+                          key={index}
+                          className="d-flex flex-column align-items-start justify-content-center gap-4"
+                        >
+                          <H1 fontSize="31px" family="'Poppins','sans-serif'">
+                            {val.headline}
+                          </H1>
+                          <P color="gray" className="mb-0">
+                            {val.text}
+                          </P>
+                        </Wrapper>
+                      </Wrapper>
+                    </>
+                  );
+                })}
+              </Wrapper>
+              <Wrapper className="d-flex flex-row align-items-center justify-content-center gap-2 mt-5 mb-5">
+                <ShopIcon style={{ fontSize: "25px" }} />
+                <Wrapper>
+                  <Image
+                    src="/assets/app.svg"
+                    alt="app store"
+                    width="25px"
+                    height="25px"
+                  />
+                </Wrapper>
+              </Wrapper>
+            </Wrapper>
+            {/* <Wrapper id="section-2" mt={"10%"}>
               <Row className="text-center align-items-center">
                 <Col md={6}>
                   <Wrapper className="d-flex flex-column align-items-center">
@@ -190,7 +265,7 @@ export default function Home() {
                   </Wrapper>
                 </Col>
               </Row>
-            </Wrapper>
+            </Wrapper> */}
             <Wrapper id="marquee" mt={isResponsive ? "15%" : "10%"}>
               <MarqueeSlider>
                 <H1
@@ -205,11 +280,8 @@ export default function Home() {
                 </H1>
               </MarqueeSlider>
             </Wrapper>
-            <Wrapper id="section-3" mt={isResponsive ? "15%" : "10%"}>
-              <Wrapper
-                ps={isResponsive ? "1.5rem" : "5rem"}
-                // className="d-flex flex-row align-items-center justify-content-center"
-              >
+            {/* <Wrapper id="section-3" mt={isResponsive ? "15%" : "10%"}>
+              <Wrapper ps={isResponsive ? "1.5rem" : "5rem"}>
                 <Row className="text-center align-items-center flex-wrap-reverse">
                   <Col md={6} sm={6} lg={6}>
                     <Wrapper width="100%" className="d-flex flex-column gap-4">
@@ -218,7 +290,7 @@ export default function Home() {
                           <>
                             <Wrapper key={index}>
                               <Wrapper
-                                className="d-flex flex-row align-items-center justify-content-between"
+                                className="d-flex flex-row align-items-start justify-content-between"
                                 pt="40px"
                                 pb="40px"
                                 ps="20px"
@@ -236,7 +308,7 @@ export default function Home() {
                                     {val.heading}
                                   </H1>
                                 </Wrapper>
-                                <Wrapper ms="10%">
+                                <Wrapper ms="10%" mt="5px">
                                   {index == questionState ? (
                                     <RemoveIcon
                                       onClick={() => {
@@ -292,6 +364,92 @@ export default function Home() {
                     />
                   </Col>
                 </Row>
+              </Wrapper>
+            </Wrapper> */}
+            {/* <Spacer height="100vh" /> */}
+          </Container>
+          <Wrapper
+            mt={isResponsive ? "10%" : "3%"}
+            bg="white"
+            width="100%"
+            height="300px"
+            className="d-flex flex-column align-items-center justify-content-center gap-4"
+          >
+            <H1
+              fontSize="51px"
+              family="'Poppins','sans-serif'"
+              className="text-center"
+              color="#db5c4d"
+            >
+              Start your experience now
+            </H1>
+            <PrimaryButton transform={true} fontSize="21px">
+              Visit now
+            </PrimaryButton>
+          </Wrapper>
+          <Container>
+            <Wrapper>
+              <Wrapper
+                className="d-flex flex-row align-items-center justify-content-center mt-4"
+                mb="7%"
+              >
+                <H1
+                  fontSize="51px"
+                  family="'Poppins','sans-serif'"
+                  color="#db5c4d"
+                >
+                  Meet Team
+                </H1>
+              </Wrapper>
+              <Wrapper
+                ms={isResponsive ? "" : "17%"}
+                me={isResponsive ? "" : "17%"}
+              >
+                <Wrapper
+                  className={`d-flex flex-row align-items-center flex-wrap ${
+                    isResponsive
+                      ? "gap-3 justify-content-center"
+                      : "justify-content-between"
+                  }`}
+                >
+                  {TeamData.map((val, index) => {
+                    return (
+                      <>
+                        <Wrapper
+                          key={index}
+                          border="1px solid gray"
+                          pt="20px"
+                          pb="20px"
+                          ps="20px"
+                          pe="20px"
+                          borderRadius="10px"
+                          height="300px"
+                          width="250px"
+                        >
+                          <Wrapper className="d-flex flex-column align-items-center justify-content-center gap-4">
+                            <Image
+                              src={val.profile}
+                              alt="haider"
+                              width="150px"
+                              height="150px"
+                              className="rounded-5 img-fluid"
+                            />
+                            <H1
+                              className="text-center"
+                              fontSize="31px"
+                              family="'Poppins','sans-serif'"
+                            >
+                              {val.name}
+                            </H1>
+                            <P color="gray" className="mb-0 text-center">
+                              {val.desc}
+                            </P>
+                          </Wrapper>
+                        </Wrapper>
+                      </>
+                    );
+                  })}
+                </Wrapper>
               </Wrapper>
             </Wrapper>
             <Spacer height="100vh" />

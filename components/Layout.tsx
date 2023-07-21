@@ -86,6 +86,7 @@ const MarqueeSlider = ({ children }: any) => {
   return (
     <>
       <Marquee
+        style={{ overflowY: "hidden" }}
         play={true}
         pauseOnHover={true}
         className={`bg-black `}
