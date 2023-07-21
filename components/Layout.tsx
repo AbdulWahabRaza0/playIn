@@ -3,8 +3,7 @@ import { useMediaQuery } from "react-responsive";
 import { Col, Row } from "react-bootstrap";
 import Marquee from "react-fast-marquee";
 import Typewriter from "typewriter-effect";
-import { H1 } from "./Typography";
-import Image from "next/image";
+import { Image } from "react-bootstrap";
 interface WrapperProps {
   width?: string;
   border?: string;
@@ -29,6 +28,7 @@ interface WrapperProps {
   lHeight?: string;
   position?: string;
   top?: any;
+  family?: string;
 }
 const Wrapper = styled.div<WrapperProps>`
   width: ${(props) => (props.width ? props.width : "")};
@@ -52,6 +52,8 @@ const Wrapper = styled.div<WrapperProps>`
   z-index: ${(props) => props.zIndex && props.zIndex};
   position: ${(props) => props.position && props.position};
   line-height: ${(props) => props.lHeight && props.lHeight};
+  font-family: ${(props) =>
+    props.family ? props.family : "'Nekst','sans-serif'"};
   top: ${(props) => props.top && props.top};
   &:hover {
     background: ${(props) => props.hoverBg && props.hoverBg};
@@ -104,18 +106,18 @@ const SimpleCard = ({ imgSrc, text }: any) => {
         width="80%"
         height="auto"
         border="2px solid gray"
-        pt="30px"
-        pb="30px"
-        ps="30px"
-        pe="30px"
+        pt="20px"
+        pb="20px"
+        ps="20px"
+        pe="20px"
         className={`d-flex flex-row align-items-center ${
           isResponsive
             ? "justify-content-center flex-wrap"
             : "justify-content-betweem"
         }`}
       >
-        <Wrapper ms="5%" me="5%">
-          <img src={imgSrc} alt="header1" />
+        <Wrapper ms="5%" me="3%">
+          <Image src={imgSrc} alt="header1" width="25px" height="25px" />
         </Wrapper>
         <Wrapper
           ms="5%"
@@ -140,4 +142,5 @@ export {
   Col,
   Container,
   TypeWriterComp,
+  Image,
 };

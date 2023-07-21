@@ -7,12 +7,15 @@ export interface Props {
   tt?: string;
   hoverBg?: string;
   ls?: string;
+  family?: string;
 }
 const H1 = styled.h1<Props>`
   font-style: normal;
   font-weight: ${(props) => props.weight && props.weight};
   line-height: ${(props) => props.lHeight && props.lHeight};
   font-size: ${(props) => props.fontSize && props.fontSize};
+  font-family: ${(props) =>
+    props.family ? props.family : "'Organeto','sans-serif'"};
   letter-spacing: ${(props) => props.ls && props.ls};
   color: ${(props) => (props.color ? props.color : "#ffffff")};
   margin-bottom: 0px;
@@ -24,6 +27,8 @@ const H3 = styled.h3<Props>`
   line-height: ${(props) => props.lHeight && props.lHeight};
   font-size: ${(props) => props.fontSize && props.fontSize};
   color: ${(props) => (props.color ? props.color : "#ffffff")};
+  font-family: ${(props) =>
+    props.family ? props.family : "'Organeto','sans-serif'"};
   letter-spacing: ${(props) => props.ls && props.ls};
   margin-bottom: 0px;
 `;
@@ -35,6 +40,9 @@ const P = styled.p<Props>`
   font-size: ${(props) => (props.fontSize ? props.fontSize : "16px")};
   letter-spacing: ${(props) => props.ls && props.ls};
   color: ${(props) => (props.color ? props.color : "#ffffff")};
+
+  font-family: ${(props) =>
+    props.family ? props.family : "'Nekst','sans-serif'"};
   margin-bottom: 0px;
 `;
 export { H1, H2, H3, P };

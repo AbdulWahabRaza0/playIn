@@ -15,6 +15,7 @@ interface Props {
   fontSize?: string;
   padding?: string;
   transform?: boolean;
+  family?: string;
 }
 export const PrimaryButton = styled(ButtonComp)<Props>`
   font-style: normal;
@@ -33,6 +34,7 @@ export const PrimaryButton = styled(ButtonComp)<Props>`
   border: ${(props) => (props.border ? props.border : "none")};
   transform: ${(props) => props.transform && "skew(-20deg)"};
   background: ${(props) => (props.bg ? props.bg : "#DB5C4D")};
+  font-family: ${(props) => props.family && props.family};
   &:hover {
     background: ${(props) => (props.bg ? props.bg : "#DB5C4D") + " !important"};
   }

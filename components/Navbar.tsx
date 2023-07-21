@@ -1,8 +1,7 @@
 "use client";
 import React from "react";
-import { Wrapper, useMediaQuery, Container } from "./Layout";
+import { Wrapper, useMediaQuery, Image } from "./Layout";
 import { PrimaryButton } from "./Buttons";
-import Image from "next/image";
 const Navbar = () => {
   const isResponsive = useMediaQuery({
     query: "(max-width: 752px)",
@@ -17,10 +16,10 @@ const Navbar = () => {
           className="d-flex flex-row align-items-center justify-content-between"
         >
           <Image
-            src="/assets/playin-logo.png"
+            src="/assets/logo.svg"
             alt="playin logo"
-            width={130}
-            height={40}
+            width={150}
+            height={50}
           />
           {!isResponsive && (
             <PrimaryButton
