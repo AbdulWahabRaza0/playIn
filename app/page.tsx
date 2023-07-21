@@ -208,14 +208,6 @@ export default function Home() {
             <Wrapper id="section-3" mt={isResponsive ? "15%" : "10%"}>
               <Wrapper ps={"5rem"}>
                 <Wrapper>
-                  <Wrapper mb="5rem">
-                    <H1
-                      fontSize={isResponsive ? "31px" : "51px"}
-                      family="'Poppins','sans-serif'"
-                    >
-                      Aural Nexus ECOSYSTEM
-                    </H1>
-                  </Wrapper>
                   <Row className="text-center align-items-center flex-wrap-reverse">
                     <Col md={6} sm={6} lg={6}>
                       <Wrapper className="d-flex flex-column gap-4">
