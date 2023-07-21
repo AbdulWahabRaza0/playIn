@@ -16,6 +16,7 @@ import { Spacer } from "@/components/Spacer";
 import { H1, P } from "@/components/Typography";
 import { PrimaryButton } from "@/components/Buttons";
 import AddIcon from "@mui/icons-material/Add";
+import RemoveIcon from "@mui/icons-material/Remove";
 import "bootstrap/dist/css/bootstrap.min.css";
 const Header1Data = [
   {
@@ -228,6 +229,7 @@ export default function Home() {
                                 ps="20px"
                                 pe="20px"
                                 width="90%"
+                                bg={index === questionState ? "#db5c4d" : ""}
                                 border="1px solid white"
                               >
                                 <Wrapper className="text-start">
@@ -240,19 +242,27 @@ export default function Home() {
                                   </H1>
                                 </Wrapper>
                                 <Wrapper ms="10%">
-                                  <AddIcon
-                                    onClick={() => {
-                                      if (index === questionState) {
+                                  {index == questionState ? (
+                                    <RemoveIcon
+                                      onClick={() => {
                                         setQuestionState(-1);
-                                      } else {
+                                      }}
+                                      style={{
+                                        fontSize: "31px",
+                                        cursor: "pointer",
+                                      }}
+                                    />
+                                  ) : (
+                                    <AddIcon
+                                      onClick={() => {
                                         setQuestionState(index);
-                                      }
-                                    }}
-                                    style={{
-                                      fontSize: "31px",
-                                      cursor: "pointer",
-                                    }}
-                                  />
+                                      }}
+                                      style={{
+                                        fontSize: "31px",
+                                        cursor: "pointer",
+                                      }}
+                                    />
+                                  )}
                                 </Wrapper>
                               </Wrapper>
                               {index === questionState && (

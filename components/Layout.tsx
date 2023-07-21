@@ -52,6 +52,7 @@ const Wrapper = styled.div<WrapperProps>`
   z-index: ${(props) => props.zIndex && props.zIndex};
   position: ${(props) => props.position && props.position};
   line-height: ${(props) => props.lHeight && props.lHeight};
+  background: ${(props) => props.bg && props.bg};
   font-family: ${(props) =>
     props.family ? props.family : "'Nekst','sans-serif'"};
   top: ${(props) => props.top && props.top};
