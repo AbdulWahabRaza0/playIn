@@ -8,6 +8,7 @@ export interface Props {
   hoverBg?: string;
   ls?: string;
   family?: string;
+  hover?: boolean;
 }
 const H1 = styled.h1<Props>`
   font-style: normal;
@@ -44,5 +45,9 @@ const P = styled.p<Props>`
   font-family: ${(props) =>
     props.family ? props.family : "'Nekst','sans-serif'"};
   margin-bottom: 0px;
+  &:hover {
+    text-decoration: ${(props) => props.hover && "underline"};
+    opacity: ${(props) => props.hover && "0.8"};
+  }
 `;
 export { H1, H2, H3, P };

@@ -17,8 +17,11 @@ import { H1, P } from "@/components/Typography";
 import { PrimaryButton } from "@/components/Buttons";
 import AddIcon from "@mui/icons-material/Add";
 import RemoveIcon from "@mui/icons-material/Remove";
+import LinkedInIcon from "@mui/icons-material/LinkedIn";
 import ShopIcon from "@mui/icons-material/Shop";
 import "bootstrap/dist/css/bootstrap.min.css";
+import AOS from "aos";
+import "aos/dist/aos.css";
 const Header1Data = [
   {
     headline: "Effortless Summaries",
@@ -82,6 +85,8 @@ export default function Home() {
     query: "(max-width: 752px)",
   });
   useEffect(() => {
+    AOS.init();
+    AOS.refresh();
     setMount(true);
   }, []);
   return (
@@ -90,7 +95,7 @@ export default function Home() {
         <Navbar />
         <Wrapper>
           <Container>
-            <Spacer height="100px" />
+            <Spacer height="10px" />
             <Wrapper
               height="auto"
               className="d-flex flex-row align-items-center"
@@ -115,7 +120,7 @@ export default function Home() {
                     weight="700"
                   >
                     <TypeWriterComp
-                      text={"Craft Compelling Articles Effortlessly"}
+                      text={"Unlock power of summary and voices"}
                     />
                   </H1>
 
@@ -127,8 +132,9 @@ export default function Home() {
                     color="gray"
                     className={`${isResponsive && "mt-2"}`}
                   >
-                    Unleash creativity with AI-driven articles, auto-read audio
-                    <br />& captivating thumbnails!
+                    AuralNexus Unlocking power of AI generated summaries,
+                    <br />
+                    images and voice of your fav celebs.
                   </P>
                   {isResponsive && (
                     <Wrapper className="mt-2">
@@ -155,10 +161,10 @@ export default function Home() {
                   weight="bold"
                   family="'Poppins','sans-serif'"
                 >
-                  CREATIVITY -<span className="text-orange">INSPIRATION</span>-
-                  IDEAS -<span className="text-orange">ELEVATE</span>- CONTENT -
-                  <span className="text-orange">ENGAGE</span>- WRITING -
-                  <span className="text-orange">AUTOMATED</span>- INSIGHTS -
+                  Summaries -<span className="text-orange">AI Generated</span>-
+                  Voices -<span className="text-orange">Famous</span>- CONTENT -
+                  <span className="text-orange">Automated</span>- Images -
+                  <span className="text-orange">AuralNexus</span>- INSIGHTS -
                   <span className="text-orange">OPTIMIZE</span>-
                 </H1>
               </MarqueeSlider>
@@ -177,7 +183,7 @@ export default function Home() {
                   return (
                     <>
                       <Wrapper
-                        border="1px solid gray"
+                        border="1px solid white"
                         pt="20px"
                         pb="20px"
                         ps="20px"
@@ -185,6 +191,7 @@ export default function Home() {
                         borderRadius="10px"
                         height="200px"
                         width={isResponsive ? "300px" : "400px"}
+                        // style={{ boxShadow: "1px 3px 3px #D6D6D4" }}
                       >
                         <Wrapper
                           key={index}
@@ -214,58 +221,7 @@ export default function Home() {
                 </Wrapper>
               </Wrapper>
             </Wrapper>
-            {/* <Wrapper id="section-2" mt={"10%"}>
-              <Row className="text-center align-items-center">
-                <Col md={6}>
-                  <Wrapper className="d-flex flex-column align-items-center">
-                    <H1
-                      fontSize={isResponsive ? "31px" : "51px"}
-                      ls="4px"
-                      lHeight={isResponsive ? "41px" : "81px"}
-                      family="'Poppins','sans-serif'"
-                    >
-                      Creative Writing to
-                      <br /> Lucrative Earnings
-                    </H1>
-                    <Wrapper position="relative">
-                      <Wrapper
-                        position="absolute"
-                        fontColor="gray"
-                        fontSize={isResponsive ? "21px" : "24px"}
-                        mt="80px"
-                        ms="80px"
-                        className="text-start"
-                        ls="1px"
-                        lHeight={isResponsive ? "41px" : "51px"}
-                        family="'Nekst','sans-serif'"
-                      >
-                        A simple gameplan:
-                        <br />
-                        Writing to Real $$$
-                      </Wrapper>
-                      <Wrapper position="relative">
-                        <Image src="/assets/header1.svg" alt="header1" />
-                      </Wrapper>
-                    </Wrapper>
-                  </Wrapper>
-                </Col>
-                <Col md={6} className="align-slef-start">
-                  <Wrapper className="d-flex flex-column align-items-center justify-content-center gap-4">
-                    {Header1Data.map((val, index) => {
-                      return (
-                        <>
-                          <SimpleCard
-                            key={index}
-                            imgSrc={"/assets/bullet.png"}
-                            text={val.text}
-                          />
-                        </>
-                      );
-                    })}
-                  </Wrapper>
-                </Col>
-              </Row>
-            </Wrapper> */}
+
             <Wrapper id="marquee" mt={isResponsive ? "15%" : "10%"}>
               <MarqueeSlider>
                 <H1
@@ -280,95 +236,9 @@ export default function Home() {
                 </H1>
               </MarqueeSlider>
             </Wrapper>
-            {/* <Wrapper id="section-3" mt={isResponsive ? "15%" : "10%"}>
-              <Wrapper ps={isResponsive ? "1.5rem" : "5rem"}>
-                <Row className="text-center align-items-center flex-wrap-reverse">
-                  <Col md={6} sm={6} lg={6}>
-                    <Wrapper width="100%" className="d-flex flex-column gap-4">
-                      {Section2Data.map((val, index) => {
-                        return (
-                          <>
-                            <Wrapper key={index}>
-                              <Wrapper
-                                className="d-flex flex-row align-items-start justify-content-between"
-                                pt="40px"
-                                pb="40px"
-                                ps="20px"
-                                pe="20px"
-                                width="90%"
-                                bg={index === questionState ? "#db5c4d" : ""}
-                                border="1px solid white"
-                              >
-                                <Wrapper className="text-start">
-                                  <H1
-                                    ls="1px"
-                                    fontSize={isResponsive ? "21px" : "27px"}
-                                    family="'Poppins','sans-serif'"
-                                  >
-                                    {val.heading}
-                                  </H1>
-                                </Wrapper>
-                                <Wrapper ms="10%" mt="5px">
-                                  {index == questionState ? (
-                                    <RemoveIcon
-                                      onClick={() => {
-                                        setQuestionState(-1);
-                                      }}
-                                      style={{
-                                        fontSize: "31px",
-                                        cursor: "pointer",
-                                      }}
-                                    />
-                                  ) : (
-                                    <AddIcon
-                                      onClick={() => {
-                                        setQuestionState(index);
-                                      }}
-                                      style={{
-                                        fontSize: "31px",
-                                        cursor: "pointer",
-                                      }}
-                                    />
-                                  )}
-                                </Wrapper>
-                              </Wrapper>
-                              {index === questionState && (
-                                <Wrapper
-                                  width="90%"
-                                  pt="40px"
-                                  pb="40px"
-                                  ps="20px"
-                                  pe="20px"
-                                  border="1px solid white"
-                                  family="'Organeto','sans-serif'"
-                                  className="text-start"
-                                  fontColor="gray"
-                                  fontSize="16px"
-                                >
-                                  {val.desc}
-                                </Wrapper>
-                              )}
-                            </Wrapper>
-                          </>
-                        );
-                      })}
-                    </Wrapper>
-                  </Col>
-                  <Col md={6}>
-                    <Image
-                      src="/assets/question.gif"
-                      alt="question"
-                      className="img-fluid"
-                      width={isResponsive ? 300 : 600}
-                      height={700}
-                    />
-                  </Col>
-                </Row>
-              </Wrapper>
-            </Wrapper> */}
-            {/* <Spacer height="100vh" /> */}
           </Container>
           <Wrapper
+            id="experience"
             mt={isResponsive ? "10%" : "3%"}
             bg="white"
             width="100%"
@@ -390,7 +260,7 @@ export default function Home() {
           <Container>
             <Wrapper>
               <Wrapper
-                className="d-flex flex-row align-items-center justify-content-center mt-4"
+                className="d-flex flex-row align-items-center justify-content-center mt-5"
                 mb="7%"
               >
                 <H1
@@ -398,12 +268,13 @@ export default function Home() {
                   family="'Poppins','sans-serif'"
                   color="#db5c4d"
                 >
-                  Meet Team
+                  Meet the Visionaries behind AuralNexus
                 </H1>
               </Wrapper>
               <Wrapper
-                ms={isResponsive ? "" : "17%"}
-                me={isResponsive ? "" : "17%"}
+                id="team"
+                ms={isResponsive ? "" : "10%"}
+                me={isResponsive ? "" : "10%"}
               >
                 <Wrapper
                   className={`d-flex flex-row align-items-center flex-wrap ${
@@ -417,7 +288,6 @@ export default function Home() {
                       <>
                         <Wrapper
                           key={index}
-                          border="1px solid gray"
                           pt="20px"
                           pb="20px"
                           ps="20px"
@@ -426,24 +296,58 @@ export default function Home() {
                           height="300px"
                           width="250px"
                         >
-                          <Wrapper className="d-flex flex-column align-items-center justify-content-center gap-4">
-                            <Image
-                              src={val.profile}
-                              alt="haider"
-                              width="150px"
-                              height="150px"
-                              className="rounded-5 img-fluid"
-                            />
-                            <H1
-                              className="text-center"
-                              fontSize="31px"
-                              family="'Poppins','sans-serif'"
+                          <Wrapper
+                            className={`d-flex flex-column ${
+                              index === 1
+                                ? "align-items-start"
+                                : "align-items-end"
+                            } justify-content-end gap-4`}
+                          >
+                            <Wrapper position="relative">
+                              <Image
+                                src={val.profile}
+                                alt="haider"
+                                width="300px"
+                                height="300px"
+                                className="rounded-5"
+                              />
+                            </Wrapper>
+                            <Wrapper
+                              position="absolute"
+                              // style={{ bottom: 10 }}
+                              bg="black"
+                              ps="30px"
+                              pe="30px"
+                              pt="20px"
+                              pb="20px"
                             >
-                              {val.name}
-                            </H1>
-                            <P color="gray" className="mb-0 text-center">
-                              {val.desc}
-                            </P>
+                              <H1
+                                className={`mb-0 ${
+                                  index === 1 ? "text-start" : "text-end"
+                                }`}
+                                fontSize="31px"
+                                family="'Poppins','sans-serif'"
+                              >
+                                {val.name}
+                              </H1>
+                              <P
+                                color="gray"
+                                className={`mb-0 ${
+                                  index === 1 ? "text-start" : "text-end"
+                                }`}
+                              >
+                                {val.desc}
+                              </P>
+                              <Wrapper
+                                className={`d-flex flex-row align-items-center ${
+                                  index === 1
+                                    ? "justify-content-start"
+                                    : "justify-content-end"
+                                } mt-2`}
+                              >
+                                <LinkedInIcon />
+                              </Wrapper>
+                            </Wrapper>
                           </Wrapper>
                         </Wrapper>
                       </>
@@ -451,6 +355,18 @@ export default function Home() {
                   })}
                 </Wrapper>
               </Wrapper>
+            </Wrapper>
+            <Wrapper
+              className="d-flex flex-column align-items-center justify-content-center"
+              mt="10rem"
+            >
+              <H1
+                fontSize="51px"
+                family="'Poppins','sans-serif'"
+                color="#db5c4d"
+              >
+                Contact Us
+              </H1>
             </Wrapper>
             <Spacer height="100vh" />
           </Container>

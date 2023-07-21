@@ -29,6 +29,7 @@ interface WrapperProps {
   position?: string;
   top?: any;
   family?: string;
+  transition?: boolean;
 }
 const Wrapper = styled.div<WrapperProps>`
   width: ${(props) => (props.width ? props.width : "")};
@@ -53,6 +54,7 @@ const Wrapper = styled.div<WrapperProps>`
   position: ${(props) => props.position && props.position};
   line-height: ${(props) => props.lHeight && props.lHeight};
   background: ${(props) => props.bg && props.bg};
+  transition: ${(props) => props.transition && "background-color 0.5s ease"};
   font-family: ${(props) =>
     props.family ? props.family : "'Nekst','sans-serif'"};
   top: ${(props) => props.top && props.top};
