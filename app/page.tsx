@@ -15,8 +15,8 @@ import {
 import { Spacer } from "@/components/Spacer";
 import { H1, P } from "@/components/Typography";
 import { PrimaryButton } from "@/components/Buttons";
-import AddIcon from "@mui/icons-material/Add";
-import RemoveIcon from "@mui/icons-material/Remove";
+import { Input } from "../components/Input";
+// import Logo from '../public/assets/logo.svg';
 import LinkedInIcon from "@mui/icons-material/LinkedIn";
 import ShopIcon from "@mui/icons-material/Shop";
 import "bootstrap/dist/css/bootstrap.min.css";
@@ -176,7 +176,7 @@ export default function Home() {
                 family="'Poppins','sans-serif'"
                 color="#db5c4d"
               >
-                What we do?
+                What app do?
               </H1>
               <Wrapper className="d-flex flex-row align-items-center justify-content-center flex-wrap gap-3">
                 {Header1Data.map((val, index) => {
@@ -251,7 +251,7 @@ export default function Home() {
               className="text-center"
               color="#db5c4d"
             >
-              Start your experience now
+              Start the experience now
             </H1>
             <PrimaryButton transform={true} fontSize="21px">
               Visit now
@@ -357,7 +357,7 @@ export default function Home() {
               </Wrapper>
             </Wrapper>
             <Wrapper
-              className="d-flex flex-column align-items-center justify-content-center"
+              className="d-flex flex-column align-items-center justify-content-center gap-3"
               mt="10rem"
             >
               <H1
@@ -365,11 +365,49 @@ export default function Home() {
                 family="'Poppins','sans-serif'"
                 color="#db5c4d"
               >
-                Contact Us
+                {"We'd Love to Hear From You"}
               </H1>
+              <Spacer height="30px" />
+              <Wrapper
+                width="100%"
+                className="d-flex flex-row align-items-center justify-content-center"
+              >
+                <Input type="text" placeholder="Email" />
+              </Wrapper>
+              <Spacer height="10px" />
+              <PrimaryButton fontSize="18px">Submit</PrimaryButton>
             </Wrapper>
-            <Spacer height="100vh" />
+
+            <Spacer height="40px" />
           </Container>
+          <Wrapper id="footer">
+            <Wrapper width="100%" height="0.5px" bg="white"></Wrapper>
+            <Wrapper className="d-flex flex-column align-items-center justify-content-center mt-4">
+              <Image
+                src="/assets/logo.svg"
+                alt="logo"
+                width="120px"
+                height="100px"
+              />
+              <Wrapper className="d-flex flex-row align-items-center justify-content-center gap-3">
+                <LinkedInIcon style={{ fontSize: "25px" }} />
+                <ShopIcon style={{ fontSize: "25px" }} />
+                <Image
+                  src="/assets/app.svg"
+                  alt="app store"
+                  width="25px"
+                  height="25px"
+                />
+              </Wrapper>
+              <Wrapper
+                width="100%"
+                className="px-3 pb-2 mt-5 d-flex flex-row align-items-center justify-content-between"
+              >
+                <Wrapper fontSize="18px">All Right Reserved</Wrapper>
+                <Wrapper fontSize="18px">auralnexus@gmail.com</Wrapper>
+              </Wrapper>
+            </Wrapper>
+          </Wrapper>
         </Wrapper>
       </>
     )
