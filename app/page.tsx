@@ -36,9 +36,8 @@ const Header1Data = [
     ),
     text: (
       <>
-        Listen to your published articles
-        <br /> narrated by celebrities like Elon
-        <br /> Musk, Kavin Hart and more.
+        Listen to your published articles narrated by
+        <br /> celebrities like Elon Musk, Kavin Hart <br /> and more.
       </>
     ),
     src: "/assets/audio.png",

@@ -213,7 +213,13 @@ const SplitWrapper = ({ left, src, headline, text }: any) => {
                 >
                   {headline}
                 </H1>
-                <P fontSize={isResponsive ? "" : "21px"}>{text}</P>
+                <P
+                  className="mt-3"
+                  fontSize={isResponsive ? "" : "21px"}
+                  lHeight="31px"
+                >
+                  {text}
+                </P>
               </Wrapper>
             </Wrapper>
           </Wrapper>
