@@ -165,7 +165,7 @@ export default function Home() {
                   <Wrapper bg="white" height="75vh" width="0.7px"></Wrapper>
                 )}
                 <Wrapper
-                  width={isResponsive ? "100%" : "1100px"}
+                  width={isResponsive ? "100%" : "70%"}
                   mt={isResponsive ? "5vh" : "25vh"}
                   ms={isResponsive ? "" : "30px"}
                   me={isResponsive ? "" : "30px"}
@@ -177,7 +177,7 @@ export default function Home() {
                     style={{ height: !isResponsive ? "180px" : "" }}
                     lh={isResponsive ? "37px" : "62px"}
                     fontSize={isResponsive ? "20px" : "37px"}
-                    family="'Organeto','sans-serif'"
+                    family="'Montserrat', sans-serif"
                     weight="900"
                   >
                     PRODUCTIVITY REDEFINED
@@ -305,6 +305,29 @@ export default function Home() {
               </Wrapper>
             </Wrapper>
           </Wrapper>
+            <Container>
+            <Wrapper id="devices">
+              <H1
+                className="text-center mb-5"
+                fontSize={isResponsive ? "21px" : "50px"}
+                lh={isResponsive ? "27px" : "57px"}
+                color="#db5c4d"
+                family="'Montserrat', sans-serif"
+                weight="700"
+              >
+                Join the Network from any
+                <br />
+                device of your choice
+              </H1>
+              <Wrapper>
+                <Image
+                  src="/assets/devices.png"
+                  alt="devices"
+                  className="img-fluid"
+                />
+              </Wrapper>
+            </Wrapper>
+          </Container>
           <Wrapper
             id="experience"
             mt={isResponsive ? "10%" : "3%"}
@@ -328,30 +351,9 @@ export default function Home() {
               Visit now
             </PrimaryButton>
           </Wrapper>
+        
           <Container></Container>
-          <Container>
-            <Wrapper id="devices">
-              <H1
-                className="text-center mb-5"
-                fontSize={isResponsive ? "21px" : "50px"}
-                lh={isResponsive ? "27px" : "57px"}
-                color="#db5c4d"
-                family="'Montserrat', sans-serif"
-                weight="700"
-              >
-                Join the Network from any
-                <br />
-                device of your choice
-              </H1>
-              <Wrapper>
-                <Image
-                  src="/assets/devices.png"
-                  alt="devices"
-                  className="img-fluid"
-                />
-              </Wrapper>
-            </Wrapper>
-          </Container>
+          
           <Container>
             <Wrapper id="roadmap">
               <H1
@@ -371,7 +373,27 @@ export default function Home() {
                   <>
                     {" "}
                     <Image src="/assets/road1.svg" alt="roadmap" />
+                    <Wrapper mt="-30px" className="d-flex flex-row align-items-center justify-content-center">
+<Wrapper ms="10%" me="10%">Dummy1</Wrapper>
+<Wrapper ms="10%" me="10%">Dummy2</Wrapper>
+<Wrapper ms="10%" me="10%">Dummy3</Wrapper>
+                    </Wrapper>
+                     <Wrapper className="d-flex flex-row align-items-center justify-content-center">
+<Wrapper ms="10%" me="10%">Dummy1</Wrapper>
+<Wrapper ms="10%" me="10%">Dummy2</Wrapper>
+<Wrapper ms="10%" me="10%">Dummy3</Wrapper>
+                    </Wrapper>
                     <Image src="/assets/road2.svg" alt="roadmap" />
+                      <Wrapper mt="-30px" className="d-flex flex-row align-items-center justify-content-center">
+<Wrapper ms="10%" me="10%">Dummy1</Wrapper>
+<Wrapper ms="10%" me="10%">Dummy2</Wrapper>
+<Wrapper ms="10%" me="10%">Dummy3</Wrapper>
+                    </Wrapper>
+                    <Wrapper  className="d-flex flex-row align-items-center justify-content-center">
+<Wrapper ms="10%" me="10%">Dummy1</Wrapper>
+<Wrapper ms="10%" me="10%">Dummy2</Wrapper>
+<Wrapper ms="10%" me="10%">Dummy3</Wrapper>
+                    </Wrapper>
                   </>
                 )}
               </Wrapper>
@@ -404,7 +426,7 @@ export default function Home() {
                   className={`d-flex flex-row align-items-center  ${
                     isResponsive
                       ? "gap-3 justify-content-center flex-wrap"
-                      : "justify-content-center gap-5"
+                      : "justify-content-center gap-1"
                   }`}
                 >
                   {TeamData.map((val, index) => {
@@ -540,17 +562,17 @@ export default function Home() {
                 >
                   <Wrapper
                     ls="1px"
-                    lHeight="31px"
-                    fontSize="18px"
+                    lHeight="24px"
+                    fontSize="14px"
                     family="Poppins"
                     fontColor="gray"
                   >
-                    Securty
+                    Security
                   </Wrapper>
                   <Wrapper
-                    fontSize="18px"
+                    fontSize="14px"
                     ls="1px"
-                    lHeight="31px"
+                    lHeight="24px"
                     fontColor="gray"
                     family="Poppins"
                   >
@@ -558,13 +580,13 @@ export default function Home() {
                   </Wrapper>
                 </Wrapper>
                 <Wrapper
-                  fontSize="18px"
+                  fontSize="14px"
                   ls="1px"
-                  lHeight="31px"
+                  lHeight="24px"
                   fontColor="gray"
                   family="Poppins"
                 >
-                  All Rights Reverseved &copy;
+                  All Rights Reserved &copy;
                 </Wrapper>
               </Wrapper>
             </Wrapper>

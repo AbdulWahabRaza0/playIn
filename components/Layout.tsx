@@ -200,7 +200,7 @@ const SplitWrapper = ({ left, src, headline, text }: any) => {
         <>
           <Wrapper
             className={`d-flex flex-row justify-content-evenly align-items-center ${
-              isResponsive ? "flex-wrap" : "px-2"
+              isResponsive ? "flex-wrap" : "px-5"
             }`}
           >
             <Wrapper
@@ -219,7 +219,7 @@ const SplitWrapper = ({ left, src, headline, text }: any) => {
             <Wrapper>
               <Wrapper
                 className={`d-flex flex-column justify-content-center gap-2 ${
-                  isResponsive ? "text-center" : "text-end align-items-end"
+                  isResponsive ? "text-center" : "text-end align-items-end pe-5"
                 }`}
               >
                 <H1
@@ -256,10 +256,11 @@ const SplitWrapper = ({ left, src, headline, text }: any) => {
               }`}
             >
               <Wrapper
+              ps={isResponsive?"":"100px"}
                 className={`d-flex flex-column justify-content-center gap-2 ${
                   isResponsive
                     ? "text-center align-items-center"
-                    : "text-end align-items-end"
+                    : "text-start align-items-start"
                 }`}
               >
                 <H1
