@@ -56,7 +56,7 @@ const Header1Data = [
         <br /> summaries.
       </>
     ),
-    src: "/assets/AI.png",
+    src: "/assets/ai.png",
   },
   {
     headline: (
