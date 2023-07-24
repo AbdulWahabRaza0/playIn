@@ -25,7 +25,6 @@ import ShopIcon from "@mui/icons-material/Shop";
 import "bootstrap/dist/css/bootstrap.min.css";
 import AOS from "aos";
 import "aos/dist/aos.css";
-import Lottie from "react-lottie";
 const Header1Data = [
   {
     headline: (
