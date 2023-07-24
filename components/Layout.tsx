@@ -227,7 +227,7 @@ const SplitWrapper = ({ left, src, headline, text }: any) => {
       ) : (
         <>
           {" "}
-          <Wrapper className=" d-flex flex-row justify-content-evenly align-items-center flex-wrap-reverse">
+          <Wrapper className=" d-flex flex-row justify-content-around align-items-center flex-wrap-reverse">
             <Wrapper className="d-flex flex-row align-items-center justify-content-start">
               <Wrapper>
                 <Wrapper className="d-flex flex-column align-items-start text-start gap-2">
