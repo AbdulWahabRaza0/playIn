@@ -4,18 +4,18 @@
 
 @font-face {
   font-family: "Organeto";
-  src: url("/assets/fonts/Organetto/Organetto-RegularExt.ttf")
+  src: url("/assets/fonts/Organitto/Organetto-RegularExp.ttf")
     format("truetype");
   font-style: normal;
   font-weight: 400;
 }
 
-@font-face {
+/* @font-face {
   font-family: "Organeto";
   src: url("/assets/fonts/Organetto/Organetto-BoldExt.ttf") format("truetype");
   font-style: bold;
   font-weight: 800;
-}
+} */
 
 @font-face {
   font-family: "Nekst";
@@ -51,6 +51,7 @@ body {
   font-smooth: always;
   font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
     Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
+  scroll-behavior: smooth;
 }
 .text-orange {
   color: #db5c4d;

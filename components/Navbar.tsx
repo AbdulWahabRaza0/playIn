@@ -2,9 +2,25 @@
 import React, { useState } from "react";
 import { Wrapper, useMediaQuery, Image } from "./Layout";
 import { PrimaryButton } from "./Buttons";
-import { P } from "./Typography";
+import { A, P } from "./Typography";
 import MenuIcon from "@mui/icons-material/Menu";
 import CloseIcon from "@mui/icons-material/Close";
+const menuitems = [
+  { name: "About", link: "#about" },
+  { name: "What app do?", link: "#app" },
+  {
+    name: "experience",
+    link: "#experience",
+  },
+  {
+    name: "Team",
+    link: "#team",
+  },
+  {
+    name: "Contact",
+    link: "#contact",
+  },
+];
 const Navbar = () => {
   const [open, setOpen] = useState(false);
   const isResponsive = useMediaQuery({
@@ -38,13 +54,22 @@ const Navbar = () => {
                   height="60px"
                   className="d-flex flex-row align-items-center justify-content-center ps-4 pe-4 gap-4"
                 >
-                  <P
-                    className="mb-0"
-                    style={{ cursor: "pointer" }}
-                    hover={true}
-                  >
-                    Get Started
-                  </P>
+                  {menuitems.map((val, index) => {
+                    return (
+                      <>
+                        <A
+                          key={index}
+                          href={val.link}
+                          className="mb-0"
+                          style={{ cursor: "pointer" }}
+                          hover={true}
+                        >
+                          {val.name}
+                        </A>
+                      </>
+                    );
+                  })}
+
                   <Wrapper
                     // transition={true}
                     data-aos="flip-left"

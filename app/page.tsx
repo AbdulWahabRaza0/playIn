@@ -11,9 +11,12 @@ import {
   Row,
   Col,
   Image,
+  MarqueeContainer,
+  ScrollWrapper,
+  SplitWrapper,
 } from "@/components/Layout";
 import { Spacer } from "@/components/Spacer";
-import { H1, P } from "@/components/Typography";
+import { H1, P, HeadingAlt, SpanHeading } from "@/components/Typography";
 import { PrimaryButton } from "@/components/Buttons";
 import { Input } from "../components/Input";
 // import Logo from '../public/assets/logo.svg';
@@ -22,30 +25,102 @@ import ShopIcon from "@mui/icons-material/Shop";
 import "bootstrap/dist/css/bootstrap.min.css";
 import AOS from "aos";
 import "aos/dist/aos.css";
+import Lottie from "react-lottie";
 const Header1Data = [
   {
-    headline: "Effortless Summaries",
-    text: "Enter any article and recieve three types of AI generated summaries.",
+    headline: (
+      <>
+        Celebrity-Voiced
+        <br /> Article Playback
+      </>
+    ),
+    text: (
+      <>
+        Listen to your published articles
+        <br /> narrated by celebrities like Elon
+        <br /> Musk, Kavin Hart and more.
+      </>
+    ),
+    src: "/assets/audio.png",
   },
   {
-    headline: "AI Image Generation",
-    text: "Auralnexus creates captivating images for your articles using advanced AI technologes.",
+    headline: (
+      <>
+        AI Powered <br />
+        Article Summaries
+      </>
+    ),
+    text: (
+      <>
+        Empower your writing with AI generated
+        <br /> responses for unique and
+        <br /> engaging articles.
+      </>
+    ),
+    src: "/assets/AI.png",
   },
   {
-    headline: "Smart article tags",
-    text: "Let auralnexus suggest relevent tags, and customize them to optimize your content.",
+    headline: (
+      <>
+        Edit to Enhance <br />
+        {"Article's"} Readability
+      </>
+    ),
+    text: (
+      <>
+        Edit summaries and tags
+        <br /> to perfection, tailoring them
+        <br /> to your prefrences.
+      </>
+    ),
+    src: "/assets/search.png",
   },
   {
-    headline: "Edit and Enhance",
-    text: "Edit summaries and tags to perfection, tailoring them to your prefrences.",
+    headline: (
+      <>
+        Showcasing <br />
+        Publications
+      </>
+    ),
+    text: (
+      <>
+        Let auralnexus suggest relevent
+        <br /> tags, and customize them to
+        <br /> optimize your content.
+      </>
+    ),
+    src: "/assets/reading.png",
   },
   {
-    headline: "Publish with AI",
-    text: "Empower your writing with AI generated responses for unique and engaging articles.",
+    headline: (
+      <>
+        Explore Engaging
+        <br /> Content
+      </>
+    ),
+    text: (
+      <>
+        Enter any article and recieve
+        <br /> three types of AI generated
+        <br /> summaries.
+      </>
+    ),
+    src: "/assets/article.png",
   },
   {
-    headline: "Famous voices",
-    text: "Listen to your published articles narrated by celebrities like Elon Musk, Kavin Hart and more.",
+    headline: (
+      <>
+        Thumbnail
+        <br /> Touch-Up
+      </>
+    ),
+    text: (
+      <>
+        Auralnexus creates captivating <br /> images for your articles using{" "}
+        <br /> advanced AI technologes.
+      </>
+    ),
+    src: "/assets/image.png",
   },
 ];
 const Section2Data = [
@@ -70,12 +145,12 @@ const TeamData = [
   {
     profile: "/assets/haider.jpg",
     name: "Haider Sattar",
-    desc: "CTO Authornate",
+    desc: "Founder and CEO",
   },
   {
     profile: "/assets/authornate.jpg",
     name: "Authornate",
-    desc: "FS Team",
+    desc: "Technical Team",
   },
 ];
 export default function Home() {
@@ -93,20 +168,23 @@ export default function Home() {
     mount && (
       <>
         <Navbar />
-        <Wrapper>
+
+        <ScrollWrapper>
           <Container>
             <Spacer height="10px" />
             <Wrapper
+              id="about"
               height="auto"
               className="d-flex flex-row align-items-center"
+              style={{ zIndex: 1, position: "relative" }}
             >
               <Wrapper className="d-flex flex-row gap-5">
                 {!isResponsive && (
-                  <Wrapper bg="white" height="85vh" width="0.7px"></Wrapper>
+                  <Wrapper bg="white" height="75vh" width="0.7px"></Wrapper>
                 )}
                 <Wrapper
-                  width={isResponsive ? "100%" : "70%"}
-                  mt={isResponsive ? "5vh" : "20vh"}
+                  width={isResponsive ? "100%" : "1300px"}
+                  mt={isResponsive ? "5vh" : "25vh"}
                   ms={isResponsive ? "" : "30px"}
                   me={isResponsive ? "" : "30px"}
                   className={`d-flex flex-column justify-content-start gap-2 ${
@@ -114,30 +192,17 @@ export default function Home() {
                   }`}
                 >
                   <H1
-                    ls="3px"
-                    fontSize={isResponsive ? "31px" : "71px"}
-                    family="'Poppins','sans-serif'"
+                    style={{ height: !isResponsive ? "180px" : "" }}
+                    lh={isResponsive ? "37px" : "62px"}
+                    fontSize={isResponsive ? "20px" : "37px"}
+                    family="'Organeto','sans-serif'"
                     weight="700"
                   >
-                    <TypeWriterComp
-                      text={"Unlock power of summary and voices"}
-                    />
+                    <TypeWriterComp text="Auralnexus revolutionizes the way you publish and listen to articles" />
                   </H1>
 
-                  <P
-                    ls={isResponsive ? "0px" : "3px"}
-                    lHeight={isResponsive ? "31px" : "26px"}
-                    fontSize="18px"
-                    weight="200"
-                    color="gray"
-                    className={`${isResponsive && "mt-2"}`}
-                  >
-                    AuralNexus Unlocking power of AI generated summaries,
-                    <br />
-                    images and voice of your fav celebs.
-                  </P>
                   {isResponsive && (
-                    <Wrapper className="mt-2">
+                    <Wrapper className="mt-3 mb-5">
                       <PrimaryButton
                         family="'Poppins','sans-serif'"
                         fontColor="black"
@@ -154,31 +219,87 @@ export default function Home() {
                 </Wrapper>
               </Wrapper>
             </Wrapper>
-            <Wrapper id="marquee" mt={isResponsive ? "15%" : "3%"}>
-              <MarqueeSlider>
-                <H1
-                  fontSize={isResponsive ? "31px" : "73px"}
-                  weight="bold"
-                  family="'Poppins','sans-serif'"
-                >
-                  Summaries -<span className="text-orange">AI Generated</span>-
-                  Voices -<span className="text-orange">Famous</span>- CONTENT -
-                  <span className="text-orange">Automated</span>- Images -
-                  <span className="text-orange">AuralNexus</span>- INSIGHTS -
-                  <span className="text-orange">OPTIMIZE</span>-
-                </H1>
-              </MarqueeSlider>
+
+            <Image
+              style={{
+                position: "absolute",
+                top: "0%",
+                right: "0%",
+                zIndex: 0,
+              }}
+              width="auto"
+              height="auto"
+              className="img-fluid"
+              src="/assets/e5.svg"
+              alt="background"
+            />
+
+            <Wrapper
+              mt={isResponsive ? "0px" : ""}
+              mb={isResponsive ? "20px" : ""}
+            >
+              {isResponsive ? (
+                <div style={{ paddingLeft: "0px", overflow: "hidden" }}>
+                  <H1
+                    fontSize="40px"
+                    home
+                    marqueed={isResponsive}
+                    primary={true}
+                  >
+                    <SpanHeading>Articles Voiced by Icons</SpanHeading> -{" "}
+                    <HeadingAlt green>Quick AI Abstracts</HeadingAlt> -{" "}
+                    <SpanHeading>Perfecting Editorial Pieces</SpanHeading> -{" "}
+                    <HeadingAlt green>BET TO WIN</HeadingAlt> -{" "}
+                    <SpanHeading>Showcasing Publications</SpanHeading> -{" "}
+                  </H1>
+                  <Spacer />
+                </div>
+              ) : (
+                <div>
+                  <MarqueeContainer
+                    className={isResponsive ? "" : "scrollable-hr"}
+                  >
+                    <H1
+                      home
+                      marqueed={isResponsive}
+                      primary={true}
+                      className="d-flex flex-row align-items-center gap-3"
+                    >
+                      <SpanHeading>Articles Voiced by Icons</SpanHeading> -{" "}
+                      <HeadingAlt green>Quick AI Abstracts</HeadingAlt> -{" "}
+                      <SpanHeading>Perfecting Editorial Pieces</SpanHeading> -{" "}
+                      <HeadingAlt green>Showcasing Publications</HeadingAlt> -{" "}
+                      <SpanHeading>Showcasing Publications</SpanHeading> -{" "}
+                    </H1>
+                  </MarqueeContainer>
+                </div>
+              )}
             </Wrapper>
-            <Wrapper id="section-2" mt={"10%"}>
+
+            <Wrapper id="app" mt={"10%"}>
               <H1
                 className="text-center mb-5"
-                fontSize="51px"
-                family="'Poppins','sans-serif'"
+                fontSize={isResponsive ? "21px" : "51px"}
+                lh="71px"
                 color="#db5c4d"
               >
-                What app do?
+                AuralNexus: Transforming Soundscapes
               </H1>
-              <Wrapper className="d-flex flex-row align-items-center justify-content-center flex-wrap gap-3">
+              <Wrapper>
+                {Header1Data.map((val, index) => {
+                  return (
+                    <>
+                      <SplitWrapper
+                        left={index % 2 ? true : false}
+                        src={val.src}
+                        headline={val.headline}
+                        text={val.text}
+                      />
+                    </>
+                  );
+                })}
+              </Wrapper>
+              {/* <Wrapper className="d-flex flex-row align-items-center justify-content-center flex-wrap gap-3">
                 {Header1Data.map((val, index) => {
                   return (
                     <>
@@ -208,7 +329,8 @@ export default function Home() {
                     </>
                   );
                 })}
-              </Wrapper>
+              </Wrapper> */}
+
               <Wrapper className="d-flex flex-row align-items-center justify-content-center gap-2 mt-5 mb-5">
                 <ShopIcon style={{ fontSize: "25px" }} />
                 <Wrapper>
@@ -221,21 +343,6 @@ export default function Home() {
                 </Wrapper>
               </Wrapper>
             </Wrapper>
-
-            <Wrapper id="marquee" mt={isResponsive ? "15%" : "10%"}>
-              <MarqueeSlider>
-                <H1
-                  fontSize={isResponsive ? "31px" : "73px"}
-                  weight="bold"
-                  family="'Poppins','sans-serif'"
-                >
-                  CREATIVE -<span className="text-orange">EMPOWERMENT</span>-
-                  INNOVATION -<span className="text-orange">UNLEASH</span>-
-                  INSPIRATION -<span className="text-orange">CONNECTED</span>-
-                  COMMUNITY -<span className="text-orange">AMPLIFY</span>-
-                </H1>
-              </MarqueeSlider>
-            </Wrapper>
           </Container>
           <Wrapper
             id="experience"
@@ -246,41 +353,45 @@ export default function Home() {
             className="d-flex flex-column align-items-center justify-content-center gap-4"
           >
             <H1
-              fontSize="51px"
-              family="'Poppins','sans-serif'"
+              fontSize={isResponsive ? "21px" : "31px"}
               className="text-center"
               color="#db5c4d"
+              weight="500"
+              lh={isResponsive ? "27px" : null}
             >
-              Start the experience now
+              Experience the magic
+              <br /> of Auralnexus
             </H1>
             <PrimaryButton transform={true} fontSize="21px">
               Visit now
             </PrimaryButton>
           </Wrapper>
           <Container>
-            <Wrapper>
+            <Wrapper id="team">
               <Wrapper
                 className="d-flex flex-row align-items-center justify-content-center mt-5"
                 mb="7%"
               >
                 <H1
-                  fontSize="51px"
-                  family="'Poppins','sans-serif'"
+                  className="text-center"
+                  fontSize={isResponsive ? "21px" : "31px"}
                   color="#db5c4d"
+                  lh={isResponsive ? "27px" : null}
                 >
-                  Meet the Visionaries behind AuralNexus
+                  Meet the Visionaries
+                  <br /> behind AuralNexus
                 </H1>
               </Wrapper>
               <Wrapper
                 id="team"
-                ms={isResponsive ? "" : "10%"}
-                me={isResponsive ? "" : "10%"}
+                ms={isResponsive ? "" : ""}
+                me={isResponsive ? "" : ""}
               >
                 <Wrapper
                   className={`d-flex flex-row align-items-center flex-wrap ${
                     isResponsive
                       ? "gap-3 justify-content-center"
-                      : "justify-content-between"
+                      : "justify-content-center gap-5"
                   }`}
                 >
                   {TeamData.map((val, index) => {
@@ -293,17 +404,19 @@ export default function Home() {
                           ps="20px"
                           pe="20px"
                           borderRadius="10px"
-                          height="300px"
-                          width="250px"
+                          height="auto"
+                          width="300px"
+                          className="mx-5"
                         >
                           <Wrapper
-                            className={`d-flex flex-column ${
-                              index === 1
-                                ? "align-items-start"
-                                : "align-items-end"
-                            } justify-content-end gap-4`}
+                            className={`d-flex flex-column align-items-center justify-content-end gap-4`}
                           >
-                            <Wrapper position="relative">
+                            <Wrapper
+                              style={{
+                                boxShadow: " 1px 1px 30px 1px white",
+                                borderRadius: "50%",
+                              }}
+                            >
                               <Image
                                 src={val.profile}
                                 alt="haider"
@@ -312,38 +425,19 @@ export default function Home() {
                                 className="rounded-5"
                               />
                             </Wrapper>
-                            <Wrapper
-                              position="absolute"
-                              // style={{ bottom: 10 }}
-                              bg="black"
-                              ps="30px"
-                              pe="30px"
-                              pt="20px"
-                              pb="20px"
-                            >
+                            <Wrapper className="d-flex flex-column align-items-center justify-content-center">
                               <H1
-                                className={`mb-0 ${
-                                  index === 1 ? "text-start" : "text-end"
-                                }`}
+                                className={`mb-0 text-center`}
                                 fontSize="31px"
                                 family="'Poppins','sans-serif'"
                               >
                                 {val.name}
                               </H1>
-                              <P
-                                color="gray"
-                                className={`mb-0 ${
-                                  index === 1 ? "text-start" : "text-end"
-                                }`}
-                              >
+                              <P color="gray" className={`mb-0 text-center`}>
                                 {val.desc}
                               </P>
                               <Wrapper
-                                className={`d-flex flex-row align-items-center ${
-                                  index === 1
-                                    ? "justify-content-start"
-                                    : "justify-content-end"
-                                } mt-2`}
+                                className={`d-flex flex-row align-items-center justify-content-center mt-2`}
                               >
                                 <LinkedInIcon />
                               </Wrapper>
@@ -358,24 +452,37 @@ export default function Home() {
             </Wrapper>
             <Wrapper
               className="d-flex flex-column align-items-center justify-content-center gap-3"
-              mt="10rem"
+              mt={isResponsive ? "4rem" : "10rem"}
+              id="contact"
             >
               <H1
-                fontSize="51px"
-                family="'Poppins','sans-serif'"
+                className="text-center"
+                fontSize={isResponsive ? "21px" : "31px"}
+                lh={isResponsive ? "27px" : null}
                 color="#db5c4d"
               >
                 {"We'd Love to Hear From You"}
               </H1>
-              <Spacer height="30px" />
+              <Spacer height={isResponsive ? "10px" : "30px"} />
               <Wrapper
                 width="100%"
                 className="d-flex flex-row align-items-center justify-content-center"
               >
-                <Input type="text" placeholder="Email" />
+                <Input
+                  type="text"
+                  placeholder="Email"
+                  width={isResponsive ? "90%" : "50%"}
+                />
               </Wrapper>
-              <Spacer height="10px" />
-              <PrimaryButton fontSize="18px">Submit</PrimaryButton>
+              <Spacer height={isResponsive ? "0px" : "10px"} />
+              <PrimaryButton
+                width={isResponsive ? "120px" : ""}
+                height={isResponsive ? "50px" : ""}
+                fontSize="21px"
+                transform={true}
+              >
+                Submit
+              </PrimaryButton>
             </Wrapper>
 
             <Spacer height="40px" />
@@ -401,14 +508,41 @@ export default function Home() {
               </Wrapper>
               <Wrapper
                 width="100%"
-                className="px-3 pb-2 mt-5 d-flex flex-row align-items-center justify-content-between"
+                className="px-3 pb-2 mt-5 d-flex flex-row align-items-end justify-content-between"
               >
-                <Wrapper fontSize="18px">All Right Reserved</Wrapper>
-                <Wrapper fontSize="18px">auralnexus@gmail.com</Wrapper>
+                <Wrapper className="d-flex flex-column align-items-start justfy-content-center">
+                  <Wrapper
+                    ls="1px"
+                    lHeight="31px"
+                    fontSize="18px"
+                    family="Poppins"
+                    fontColor="gray"
+                  >
+                    Securty
+                  </Wrapper>
+                  <Wrapper
+                    fontSize="18px"
+                    ls="1px"
+                    lHeight="31px"
+                    fontColor="gray"
+                    family="Poppins"
+                  >
+                    Policy
+                  </Wrapper>
+                </Wrapper>
+                <Wrapper
+                  fontSize="18px"
+                  ls="1px"
+                  lHeight="31px"
+                  fontColor="gray"
+                  family="Poppins"
+                >
+                  auralnexus@gmail.com
+                </Wrapper>
               </Wrapper>
             </Wrapper>
           </Wrapper>
-        </Wrapper>
+        </ScrollWrapper>
       </>
     )
   );

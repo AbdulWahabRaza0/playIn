@@ -1,4 +1,4 @@
-import styled from "styled-components";
+import styled, { css, keyframes } from "styled-components";
 export interface Props {
   color?: string;
   fontSize?: string;
@@ -9,17 +9,59 @@ export interface Props {
   ls?: string;
   family?: string;
   hover?: boolean;
+  green?: any;
+  centered?: any;
+  right?: any;
+  font?: any;
+  marqueed?: any;
+  primary?: any;
+  home?: any;
+  lh?: any;
 }
+const marqueeAnimationPrimary = keyframes`
+  from { transform: translateX(0); }
+  to { transform: translateX(-100%); }
+`;
+
+const marqueeAnimationSecondary = keyframes`
+  from { transform: translateX(-100%); }
+  to { transform: translateX(0); }
+`;
 const H1 = styled.h1<Props>`
   font-style: normal;
   font-weight: ${(props) => props.weight && props.weight};
   line-height: ${(props) => props.lHeight && props.lHeight};
   font-size: ${(props) => props.fontSize && props.fontSize};
-  font-family: ${(props) =>
-    props.family ? props.family : "'Organeto','sans-serif'"};
+  font-family: ${(props) => (props.family ? props.family : "Organeto")};
+  text-transform: uppercase;
   letter-spacing: ${(props) => props.ls && props.ls};
   color: ${(props) => (props.color ? props.color : "#ffffff")};
+  line-height: ${(props) => (props.lh ? props.lh : "51px")};
   margin-bottom: 0px;
+  ${(props) =>
+    props.marqueed &&
+    css`
+      // position: absolute;
+      z-index: 999;
+      white-space: nowrap;
+      will-change: transform;
+      animation: ${props.primary
+          ? marqueeAnimationPrimary
+          : marqueeAnimationSecondary}
+        10s linear infinite;
+
+      &:hover {
+        animation-play-state: paused;
+      }
+    `}
+  ${(props) =>
+    props.home &&
+    css`
+      @media (max-width: 768px) {
+        font-size: 24px;
+        line-height: 32px;
+      }
+    `}
 `;
 const H2 = styled.h2``;
 const H3 = styled.h3<Props>`
@@ -43,6 +85,22 @@ const P = styled.p<Props>`
   color: ${(props) => (props.color ? props.color : "#ffffff")};
 
   font-family: ${(props) =>
+    props.family ? props.family : "'Poppins','sans-serif'"};
+  margin-bottom: 0px;
+  &:hover {
+    text-decoration: ${(props) => props.hover && "underline"};
+    opacity: ${(props) => props.hover && "0.8"};
+  }
+`;
+const A = styled.a<Props>`
+  font-style: normal;
+  font-weight: ${(props) => (props.weight ? props.weight : "500")};
+  line-height: ${(props) => (props.lHeight ? props.lHeight : "24px")};
+  font-size: ${(props) => (props.fontSize ? props.fontSize : "16px")};
+  letter-spacing: ${(props) => props.ls && props.ls};
+  color: ${(props) => (props.color ? props.color : "#ffffff")};
+  text-decoration: none;
+  font-family: ${(props) =>
     props.family ? props.family : "'Nekst','sans-serif'"};
   margin-bottom: 0px;
   &:hover {
@@ -50,4 +108,45 @@ const P = styled.p<Props>`
     opacity: ${(props) => props.hover && "0.8"};
   }
 `;
-export { H1, H2, H3, P };
+const HeadingAlt = styled.span<Props>`
+  line-height: 130px;
+  font-size: ${(props) => (props.fontSize ? props.fontSize : "40px")};
+  font-family: ${(props) =>
+    props.family ? props.family : "'Organeto','sans-serif'"};
+  color: transparent;
+  -webkit-text-stroke: 1px #db5c4d;
+  -webkit-text-stroke-color: 1px #db5c4d;
+  text-shadow: none;
+  @media (max-width: 768px) {
+    font-size: 32px;
+    line-height: 32px;
+  }
+  ${(props) =>
+    props.green &&
+    css`
+      -webkit-text-stroke: 1px #db5c4d;
+      text-stroke: 1px #db5c4d;
+    `}
+  ${(props) =>
+    props.centered &&
+    css`
+      text-align: center;
+    `}
+  ${(props) =>
+    props.right &&
+    css`
+      float: right;
+    `}
+      ${(props) =>
+    props.font &&
+    css`
+      @media (max-width: 768px) {
+        font-size: 64px;
+      }
+    `}
+`;
+const SpanHeading = styled.span<Props>`
+  font-family: "Organeto", "sans-serif";
+  font-size: 40px;
+`;
+export { H1, H2, H3, P, A, HeadingAlt, SpanHeading };

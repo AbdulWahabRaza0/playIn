@@ -1,9 +1,10 @@
-import styled from "styled-components";
+import styled, { css } from "styled-components";
 import { useMediaQuery } from "react-responsive";
 import { Col, Row } from "react-bootstrap";
 import Marquee from "react-fast-marquee";
 import Typewriter from "typewriter-effect";
 import { Image } from "react-bootstrap";
+import { H1, P } from "./Typography";
 interface WrapperProps {
   width?: string;
   border?: string;
@@ -31,6 +32,7 @@ interface WrapperProps {
   family?: string;
   transition?: boolean;
 }
+
 const Wrapper = styled.div<WrapperProps>`
   width: ${(props) => (props.width ? props.width : "")};
   height: ${(props) => (props.height ? props.height : "")};
@@ -56,7 +58,7 @@ const Wrapper = styled.div<WrapperProps>`
   background: ${(props) => props.bg && props.bg};
   transition: ${(props) => props.transition && "background-color 0.5s ease"};
   font-family: ${(props) =>
-    props.family ? props.family : "'Nekst','sans-serif'"};
+    props.family ? props.family : "'Organeto','sans-serif'"};
   top: ${(props) => props.top && props.top};
   &:hover {
     background: ${(props) => props.hoverBg && props.hoverBg};
@@ -75,10 +77,8 @@ const TypeWriterComp = ({ text }: any) => {
   return (
     <>
       <Typewriter
-        options={{
-          strings: [text],
-          autoStart: true,
-          loop: true,
+        onInit={(typewriter) => {
+          typewriter.typeString(text).start();
         }}
       />
     </>
@@ -137,6 +137,117 @@ const SimpleCard = ({ imgSrc, text }: any) => {
     </>
   );
 };
+const MarqueeContainer = styled.div`
+  position: relative;
+  width: 100vw;
+  max-width: 100%;
+  overflow: hidden;
+  white-space: nowrap;
+  padding-left: 50vw;
+`;
+interface Scrollprops {
+  relative?: any;
+}
+const WrapperContainer = styled.div<Scrollprops>`
+  background: black;
+
+  ${(props) =>
+    props.relative &&
+    css`
+      position: relative;
+    `}
+`;
+const ScrollWrapper = ({ children }: any) => {
+  const scrollHandler = () => {
+    const hr_scrollables: any =
+      document.getElementsByClassName("scrollable-hr");
+    const vr_scrollables: any =
+      document.getElementsByClassName("scrollable-vr");
+
+    for (const element of hr_scrollables) {
+      const rect = element.getBoundingClientRect();
+      const inView =
+        rect.top >= 0 &&
+        rect.bottom <=
+          (window.innerHeight || document.documentElement.clientHeight);
+
+      if (!inView) continue;
+
+      let progress = (window.innerHeight - rect.top) / window.innerHeight;
+
+      const width = element.scrollWidth;
+
+      const scrollPosition = progress * width;
+
+      element.scrollLeft = scrollPosition;
+    }
+  };
+
+  return (
+    <WrapperContainer onWheel={scrollHandler}>{children}</WrapperContainer>
+  );
+};
+const SplitWrapper = ({ left, src, headline, text }: any) => {
+  const isResponsive = useMediaQuery({
+    query: "(max-width: 752px)",
+  });
+  return (
+    <>
+      {!left ? (
+        <>
+          <Wrapper className=" d-flex flex-row justify-content-evenly align-items-center flex-wrap-reverse">
+            <Wrapper className="d-flex flex-row align-items-center justify-content-end">
+              <Image
+                width="500px"
+                height="300px"
+                src={src}
+                alt="item"
+                className="img-fluid"
+              />
+            </Wrapper>
+            <Wrapper>
+              <Wrapper className="d-flex flex-column align-items-end text-end gap-2">
+                <H1
+                  fontSize={isResponsive ? "21px" : "41px"}
+                  lh={isResponsive ? "31px" : ""}
+                >
+                  {headline}
+                </H1>
+                <P fontSize={isResponsive ? "" : "21px"}>{text}</P>
+              </Wrapper>
+            </Wrapper>
+          </Wrapper>
+        </>
+      ) : (
+        <>
+          {" "}
+          <Wrapper className=" d-flex flex-row justify-content-evenly align-items-center flex-wrap-reverse">
+            <Wrapper className="d-flex flex-row align-items-center justify-content-start">
+              <Wrapper>
+                <Wrapper className="d-flex flex-column align-items-start text-start gap-2">
+                  <H1
+                    fontSize={isResponsive ? "21px" : "41px"}
+                    lh={isResponsive ? "31px" : ""}
+                  >
+                    {headline}
+                  </H1>
+                  <P fontSize={isResponsive ? "" : "21px"}>{text}</P>
+                </Wrapper>
+              </Wrapper>
+              <Image
+                width="500px"
+                height="300px"
+                src={src}
+                alt="item"
+                className="img-fluid"
+              />
+            </Wrapper>
+          </Wrapper>
+        </>
+      )}
+    </>
+  );
+};
 export {
   Wrapper,
   useMediaQuery,
@@ -147,4 +258,7 @@ export {
   Container,
   TypeWriterComp,
   Image,
+  MarqueeContainer,
+  ScrollWrapper,
+  SplitWrapper,
 };
