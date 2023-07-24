@@ -76,12 +76,7 @@ const Header1Data = [
     src: "/assets/reading.png",
   },
   {
-    headline: (
-      <>
-        Showcasing <br />
-        Publications
-      </>
-    ),
+    headline: <>Showcasing Publications</>,
     text: (
       <>
         Let auralnexus suggest relevent
@@ -268,7 +263,7 @@ export default function Home() {
           </Container>
           <Wrapper id="app" mt={"10%"}>
             <H1
-              className="text-center mb-5"
+              className={isResponsive ? "mb-0 text-center" : "text-center mb-5"}
               fontSize={isResponsive ? "21px" : "50px"}
               lh={isResponsive ? "27px" : "57px"}
               color="#db5c4d"
@@ -406,9 +401,9 @@ export default function Home() {
                 me={isResponsive ? "" : ""}
               >
                 <Wrapper
-                  className={`d-flex flex-row align-items-center flex-wrap ${
+                  className={`d-flex flex-row align-items-center  ${
                     isResponsive
-                      ? "gap-3 justify-content-center"
+                      ? "gap-3 justify-content-center flex-wrap"
                       : "justify-content-center gap-5"
                   }`}
                 >
@@ -433,8 +428,8 @@ export default function Home() {
                               <Image
                                 src={val.profile}
                                 alt="haider"
-                                width="300px"
-                                height="300px"
+                                width="250px"
+                                height="250px"
                                 className="rounded-5"
                               />
                             </Wrapper>
@@ -530,9 +525,19 @@ export default function Home() {
               </Wrapper>
               <Wrapper
                 width="100%"
-                className="px-3 pb-2 mt-5 d-flex flex-row align-items-end justify-content-between"
+                className={`px-3 pb-2 mt-5 d-flex  ${
+                  isResponsive
+                    ? "justify-content-center flex-column align-items-center"
+                    : "justify-content-between flex-row align-items-end"
+                }`}
               >
-                <Wrapper className="d-flex flex-column align-items-start justfy-content-center">
+                <Wrapper
+                  className={`d-flex flex-column justfy-content-center ${
+                    isResponsive
+                      ? "align-items-center my-3"
+                      : "align-items-start"
+                  }`}
+                >
                   <Wrapper
                     ls="1px"
                     lHeight="31px"

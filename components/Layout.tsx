@@ -200,7 +200,7 @@ const SplitWrapper = ({ left, src, headline, text }: any) => {
         <>
           <Wrapper
             className={`d-flex flex-row justify-content-evenly align-items-center ${
-              isResponsive ? "flex-wrap" : "mx-1"
+              isResponsive ? "flex-wrap" : "px-2"
             }`}
           >
             <Wrapper
@@ -244,7 +244,7 @@ const SplitWrapper = ({ left, src, headline, text }: any) => {
           {" "}
           <Wrapper
             className={`d-flex flex-row justify-content-between align-items-center ${
-              isResponsive ? "flex-wrap-reverse" : "mx-1"
+              isResponsive ? "flex-wrap-reverse" : "px-1"
             }`}
           >
             <Wrapper
