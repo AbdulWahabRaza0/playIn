@@ -36,6 +36,7 @@ export const PrimaryButton = styled(ButtonComp)<Props>`
   background: ${(props) => (props.bg ? props.bg : "#DB5C4D")};
   font-family: ${(props) => props.family && props.family};
   &:hover {
-    background: ${(props) => (props.bg ? props.bg : "#DB5C4D") + " !important"};
+    background: ${(props) =>
+      (props.bg ? props.bg : "RGB(219, 92, 77,0.7)") + " !important"};
   }
 `;

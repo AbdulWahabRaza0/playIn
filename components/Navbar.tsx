@@ -13,6 +13,14 @@ const menuitems = [
     link: "#experience",
   },
   {
+    name: "Join",
+    link: "#join",
+  },
+  {
+    name: "Roadmap",
+    link: "#road",
+  },
+  {
     name: "Team",
     link: "#team",
   },
@@ -38,21 +46,31 @@ const Navbar = () => {
           <Image
             src="/assets/logo.svg"
             alt="playin logo"
-            width={150}
-            height={50}
+            className="img-fluid"
+            width={240}
+            height={60}
           />
           <Wrapper
             zIndex={100}
             style={{ position: "fixed", right: "5%" }}
-            className="d-flex flex-row align-items-center justify-content-center"
+            className={
+              isResponsive
+                ? "d-flex flex-column align-items-center justify-content-center gap-3"
+                : "d-flex flex-row align-items-center justify-content-center"
+            }
           >
             {open ? (
               <>
                 <Wrapper
                   bg="#282834"
+                  width={isResponsive ? "90vw" : "auto"}
                   borderRadius="40px"
-                  height="60px"
-                  className="d-flex flex-row align-items-center justify-content-center ps-4 pe-4 gap-4"
+                  height={isResponsive ? "100vh" : "60px"}
+                  className={
+                    isResponsive
+                      ? "d-flex flex-column align-items-center justify-content-end ps-2 pe-2 pt-2 pb-2 gap-4"
+                      : "d-flex flex-row align-items-center justify-content-center ps-4 pe-4 gap-4"
+                  }
                 >
                   {menuitems.map((val, index) => {
                     return (
@@ -71,7 +89,6 @@ const Navbar = () => {
                   })}
 
                   <Wrapper
-                    // transition={true}
                     data-aos="flip-left"
                     style={{ cursor: "pointer" }}
                     onClick={() => {
@@ -86,8 +103,8 @@ const Navbar = () => {
               <Wrapper
                 bg="#282834"
                 borderRadius="50%"
-                width="60px"
-                height="60px"
+                width="70px"
+                height="70px"
                 style={{ cursor: "pointer" }}
                 className="d-flex flex-row align-items-center justify-content-center"
                 onClick={() => {
@@ -105,19 +122,6 @@ const Navbar = () => {
               </Wrapper>
             )}
           </Wrapper>
-          {/* {!isResponsive && (
-            <PrimaryButton
-              transform={true}
-              weight="500"
-              fontSize="18px"
-              borderRadius="0px"
-              fontColor="#242a2e"
-              width="160px"
-              height="45px"
-            >
-              Get Started
-            </PrimaryButton>
-          )} */}
         </Wrapper>
       </Wrapper>
     </>

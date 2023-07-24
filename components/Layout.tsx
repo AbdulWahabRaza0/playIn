@@ -31,6 +31,7 @@ interface WrapperProps {
   top?: any;
   family?: string;
   transition?: boolean;
+  gradient?: boolean;
 }
 
 const Wrapper = styled.div<WrapperProps>`
@@ -57,6 +58,8 @@ const Wrapper = styled.div<WrapperProps>`
   line-height: ${(props) => props.lHeight && props.lHeight};
   background: ${(props) => props.bg && props.bg};
   transition: ${(props) => props.transition && "background-color 0.5s ease"};
+  background-image: ${(props) =>
+    props.gradient && "radial-gradient(circle, #66302a, black)"};
   font-family: ${(props) =>
     props.family ? props.family : "'Organeto','sans-serif'"};
   top: ${(props) => props.top && props.top};
@@ -195,8 +198,16 @@ const SplitWrapper = ({ left, src, headline, text }: any) => {
     <>
       {!left ? (
         <>
-          <Wrapper className=" d-flex flex-row justify-content-evenly align-items-center flex-wrap-reverse">
-            <Wrapper className="d-flex flex-row align-items-center justify-content-end">
+          <Wrapper
+            className={`d-flex flex-row justify-content-evenly align-items-center ${
+              isResponsive ? "flex-wrap" : "mx-1"
+            }`}
+          >
+            <Wrapper
+              className={`d-flex flex-row align-items-center ${
+                isResponsive ? "justify-content-center " : "justify-content-end"
+              }`}
+            >
               <Image
                 width="500px"
                 height="300px"
@@ -206,7 +217,11 @@ const SplitWrapper = ({ left, src, headline, text }: any) => {
               />
             </Wrapper>
             <Wrapper>
-              <Wrapper className="d-flex flex-column align-items-end text-end gap-2">
+              <Wrapper
+                className={`d-flex flex-column justify-content-center gap-2 ${
+                  isResponsive ? "text-center" : "text-end align-items-end"
+                }`}
+              >
                 <H1
                   fontSize={isResponsive ? "21px" : "41px"}
                   lh={isResponsive ? "31px" : ""}
@@ -227,19 +242,43 @@ const SplitWrapper = ({ left, src, headline, text }: any) => {
       ) : (
         <>
           {" "}
-          <Wrapper className=" d-flex flex-row justify-content-around align-items-center flex-wrap-reverse">
-            <Wrapper className="d-flex flex-row align-items-center justify-content-start">
-              <Wrapper>
-                <Wrapper className="d-flex flex-column align-items-start text-start gap-2">
-                  <H1
-                    fontSize={isResponsive ? "21px" : "41px"}
-                    lh={isResponsive ? "31px" : ""}
-                  >
-                    {headline}
-                  </H1>
-                  <P fontSize={isResponsive ? "" : "21px"}>{text}</P>
-                </Wrapper>
+          <Wrapper
+            className={`d-flex flex-row justify-content-between align-items-center ${
+              isResponsive ? "flex-wrap-reverse" : "mx-1"
+            }`}
+          >
+            <Wrapper
+              width={isResponsive ? "" : "50%"}
+              className={`d-flex flex-row align-items-center  ${
+                isResponsive
+                  ? "justify-content-center text-center"
+                  : "justify-content-end"
+              }`}
+            >
+              <Wrapper
+                className={`d-flex flex-column justify-content-center gap-2 ${
+                  isResponsive
+                    ? "text-center align-items-center"
+                    : "text-end align-items-end"
+                }`}
+              >
+                <H1
+                  fontSize={isResponsive ? "21px" : "41px"}
+                  lh={isResponsive ? "31px" : ""}
+                >
+                  {headline}
+                </H1>
+                <P fontSize={isResponsive ? "" : "21px"}>{text}</P>
               </Wrapper>
+            </Wrapper>
+            <Wrapper
+              width={isResponsive ? "" : "50%"}
+              className={`d-flex flex-row align-items-center ${
+                isResponsive
+                  ? "justify-content-center flex-wrap"
+                  : "justify-content-end me-4"
+              }`}
+            >
               <Image
                 width="500px"
                 height="300px"

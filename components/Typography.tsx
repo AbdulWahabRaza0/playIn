@@ -104,7 +104,6 @@ const A = styled.a<Props>`
     props.family ? props.family : "'Nekst','sans-serif'"};
   margin-bottom: 0px;
   &:hover {
-    text-decoration: ${(props) => props.hover && "underline"};
     opacity: ${(props) => props.hover && "0.8"};
   }
 `;

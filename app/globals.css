@@ -1,6 +1,7 @@
 @import url("https://fonts.googleapis.com/css2?family=Poppins&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Orbitron:wght@700&display=swap");
 @import url("https://db.onlinewebfonts.com/c/9475d6a0b79c164f9f605673714e75d9?family=Circular+Std+Medium");
+@import url("https://fonts.googleapis.com/css2?family=Montserrat&display=swap");
 
 @font-face {
   font-family: "Organeto";
@@ -8,21 +9,6 @@
     format("truetype");
   font-style: normal;
   font-weight: 400;
-}
-
-/* @font-face {
-  font-family: "Organeto";
-  src: url("/assets/fonts/Organetto/Organetto-BoldExt.ttf") format("truetype");
-  font-style: bold;
-  font-weight: 800;
-} */
-
-@font-face {
-  font-family: "Nekst";
-  src: url("/assets/fonts/Nekst/Nekst-Light.otf") format("truetype");
-  font-style: light;
-  font-weight: 200;
-  font-display: swap;
 }
 
 @font-face {
@@ -33,13 +19,6 @@
   font-display: swap;
 }
 
-@font-face {
-  font-family: "Nekst";
-  src: url("/assets/fonts/Nekst/Nekst-Bold.otf") format("truetype");
-  font-style: bold;
-  font-weight: 800;
-  font-display: swap;
-}
 body {
   background: black !important;
   /* font-family: "Poppins", sans-serif; */

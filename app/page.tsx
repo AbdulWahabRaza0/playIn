@@ -30,7 +30,8 @@ const Header1Data = [
     headline: (
       <>
         Celebrity-Voiced
-        <br /> Article Playback
+        <br /> Article
+        <br /> Playback
       </>
     ),
     text: (
@@ -50,9 +51,9 @@ const Header1Data = [
     ),
     text: (
       <>
-        Empower your writing with AI generated
-        <br /> responses for unique and
-        <br /> engaging articles.
+        Enter any article and recieve
+        <br /> three types of AI generated
+        <br /> summaries.
       </>
     ),
     src: "/assets/AI.png",
@@ -61,7 +62,8 @@ const Header1Data = [
     headline: (
       <>
         Edit to Enhance <br />
-        {"Article's"} Readability
+        {"Article's"}
+        <br /> Readability
       </>
     ),
     text: (
@@ -71,7 +73,7 @@ const Header1Data = [
         <br /> to your prefrences.
       </>
     ),
-    src: "/assets/search.png",
+    src: "/assets/reading.png",
   },
   {
     headline: (
@@ -87,7 +89,8 @@ const Header1Data = [
         <br /> optimize your content.
       </>
     ),
-    src: "/assets/reading.png",
+
+    src: "/assets/article.png",
   },
   {
     headline: (
@@ -98,18 +101,18 @@ const Header1Data = [
     ),
     text: (
       <>
-        Enter any article and recieve
-        <br /> three types of AI generated
-        <br /> summaries.
+        Empower your writing with AI generated
+        <br /> responses for unique and
+        <br /> engaging articles.
       </>
     ),
-    src: "/assets/article.png",
+
+    src: "/assets/search.png",
   },
   {
     headline: (
       <>
-        Thumbnail
-        <br /> Touch-Up
+        Get Unique generative <br /> Thumbnals
       </>
     ),
     text: (
@@ -121,34 +124,21 @@ const Header1Data = [
     src: "/assets/image.png",
   },
 ];
-const Section2Data = [
-  {
-    heading: "How does your writing website work?",
-    desc: "Our website simplifies article generation by utilizing links and titles. Just provide the relevant links and titles, and our advanced AI system will create well-structured and informative articles for you!",
-  },
-  {
-    heading: "What are the benefits of using your website?",
-    desc: "With our website, you can save valuable time and effort in content creation. Our AI-driven system processes the provided links and titles to craft engaging and high-quality articles, allowing you to focus on other essential tasks.",
-  },
-  {
-    heading: "What types of summaries can I generate for my articles?",
-    desc: "Our website offers three types of summaries: brief, medium, and detailed. You have the flexibility to choose the level of summarization that best suits your content and target audience.",
-  },
-  {
-    heading: "Can I include images in my articles?",
-    desc: "Absolutely! Our website supports image integration, allowing you to enrich your articles with visually appealing graphics. Enhance the readability and engagement of your content with relevant images that complement your text.",
-  },
-];
 const TeamData = [
   {
     profile: "/assets/haider.jpg",
-    name: "Haider Sattar",
+    name: "Gullam Haider",
     desc: "Founder and CEO",
   },
   {
     profile: "/assets/authornate.jpg",
     name: "Authornate",
     desc: "Technical Team",
+  },
+  {
+    profile: "/assets/haider.jpg",
+    name: "Rohan Advisor",
+    desc: "Founder and CEO",
   },
 ];
 export default function Home() {
@@ -166,7 +156,6 @@ export default function Home() {
     mount && (
       <>
         <Navbar />
-
         <ScrollWrapper>
           <Container>
             <Spacer height="10px" />
@@ -181,7 +170,7 @@ export default function Home() {
                   <Wrapper bg="white" height="75vh" width="0.7px"></Wrapper>
                 )}
                 <Wrapper
-                  width={isResponsive ? "100%" : "1300px"}
+                  width={isResponsive ? "100%" : "1100px"}
                   mt={isResponsive ? "5vh" : "25vh"}
                   ms={isResponsive ? "" : "30px"}
                   me={isResponsive ? "" : "30px"}
@@ -194,9 +183,12 @@ export default function Home() {
                     lh={isResponsive ? "37px" : "62px"}
                     fontSize={isResponsive ? "20px" : "37px"}
                     family="'Organeto','sans-serif'"
-                    weight="700"
+                    weight="900"
                   >
-                    <TypeWriterComp text="Auralnexus revolutionizes the way you publish and listen to articles" />
+                    PRODUCTIVITY REDEFINED
+                    <TypeWriterComp
+                      text={"LEARN MORE IN THE VOICES YOU LIKE"}
+                    />
                   </H1>
 
                   {isResponsive && (
@@ -273,75 +265,51 @@ export default function Home() {
                 </div>
               )}
             </Wrapper>
+          </Container>
+          <Wrapper id="app" mt={"10%"}>
+            <H1
+              className="text-center mb-5"
+              fontSize={isResponsive ? "21px" : "50px"}
+              lh={isResponsive ? "27px" : "57px"}
+              color="#db5c4d"
+              family="'Montserrat', sans-serif"
+              weight="700"
+            >
+              incentivizing
+              <br /> your voice
+            </H1>
+            <Wrapper gradient={true}>
+              {Header1Data.map((val, index) => {
+                return (
+                  <>
+                    <SplitWrapper
+                      left={index % 2 ? true : false}
+                      src={val.src}
+                      headline={val.headline}
+                      text={val.text}
+                    />
+                  </>
+                );
+              })}
+            </Wrapper>
 
-            <Wrapper id="app" mt={"10%"}>
-              <H1
-                className="text-center mb-5"
-                fontSize={isResponsive ? "21px" : "51px"}
-                lh="71px"
-                color="#db5c4d"
-              >
-                AuralNexus: Transforming Soundscapes
-              </H1>
+            <Wrapper className="d-flex flex-row align-items-center justify-content-center gap-2 mt-5 mb-5">
+              <Image
+                src="/assets/play.svg"
+                alt="app store"
+                width="70px"
+                height="70px"
+              />
               <Wrapper>
-                {Header1Data.map((val, index) => {
-                  return (
-                    <>
-                      <SplitWrapper
-                        left={index % 2 ? true : false}
-                        src={val.src}
-                        headline={val.headline}
-                        text={val.text}
-                      />
-                    </>
-                  );
-                })}
-              </Wrapper>
-              {/* <Wrapper className="d-flex flex-row align-items-center justify-content-center flex-wrap gap-3">
-                {Header1Data.map((val, index) => {
-                  return (
-                    <>
-                      <Wrapper
-                        border="1px solid white"
-                        pt="20px"
-                        pb="20px"
-                        ps="20px"
-                        pe="20px"
-                        borderRadius="10px"
-                        height="200px"
-                        width={isResponsive ? "300px" : "400px"}
-                        // style={{ boxShadow: "1px 3px 3px #D6D6D4" }}
-                      >
-                        <Wrapper
-                          key={index}
-                          className="d-flex flex-column align-items-start justify-content-center gap-4"
-                        >
-                          <H1 fontSize="31px" family="'Poppins','sans-serif'">
-                            {val.headline}
-                          </H1>
-                          <P color="gray" className="mb-0">
-                            {val.text}
-                          </P>
-                        </Wrapper>
-                      </Wrapper>
-                    </>
-                  );
-                })}
-              </Wrapper> */}
-
-              <Wrapper className="d-flex flex-row align-items-center justify-content-center gap-2 mt-5 mb-5">
-                <ShopIcon style={{ fontSize: "25px" }} />
-                <Wrapper>
-                  <Image
-                    src="/assets/app.svg"
-                    alt="app store"
-                    width="25px"
-                    height="25px"
-                  />
-                </Wrapper>
+                <Image
+                  src="/assets/app.svg"
+                  alt="app store"
+                  width="70px"
+                  height="70px"
+                />
               </Wrapper>
             </Wrapper>
-          </Container>
+          </Wrapper>
           <Wrapper
             id="experience"
             mt={isResponsive ? "10%" : "3%"}
@@ -351,11 +319,12 @@ export default function Home() {
             className="d-flex flex-column align-items-center justify-content-center gap-4"
           >
             <H1
-              fontSize={isResponsive ? "21px" : "31px"}
-              className="text-center"
+              className="text-center mb-5"
+              fontSize={isResponsive ? "21px" : "50px"}
+              lh={isResponsive ? "27px" : "57px"}
               color="#db5c4d"
-              weight="500"
-              lh={isResponsive ? "27px" : null}
+              family="'Montserrat', sans-serif"
+              weight="700"
             >
               Experience the magic
               <br /> of Auralnexus
@@ -364,6 +333,55 @@ export default function Home() {
               Visit now
             </PrimaryButton>
           </Wrapper>
+          <Container></Container>
+          <Container>
+            <Wrapper id="devices">
+              <H1
+                className="text-center mb-5"
+                fontSize={isResponsive ? "21px" : "50px"}
+                lh={isResponsive ? "27px" : "57px"}
+                color="#db5c4d"
+                family="'Montserrat', sans-serif"
+                weight="700"
+              >
+                Join the Network from any
+                <br />
+                device of your choice
+              </H1>
+              <Wrapper>
+                <Image
+                  src="/assets/devices.png"
+                  alt="devices"
+                  className="img-fluid"
+                />
+              </Wrapper>
+            </Wrapper>
+          </Container>
+          <Container>
+            <Wrapper id="roadmap">
+              <H1
+                className="text-center mb-5"
+                fontSize={isResponsive ? "21px" : "50px"}
+                lh={isResponsive ? "27px" : "57px"}
+                color="#db5c4d"
+                family="'Montserrat', sans-serif"
+                weight="700"
+              >
+                Roadmap
+              </H1>
+              <Wrapper>
+                {isResponsive ? (
+                  <Image src="/assets/road3.svg" alt="roadmap" />
+                ) : (
+                  <>
+                    {" "}
+                    <Image src="/assets/road1.svg" alt="roadmap" />
+                    <Image src="/assets/road2.svg" alt="roadmap" />
+                  </>
+                )}
+              </Wrapper>
+            </Wrapper>
+          </Container>
           <Container>
             <Wrapper id="team">
               <Wrapper
@@ -371,10 +389,12 @@ export default function Home() {
                 mb="7%"
               >
                 <H1
-                  className="text-center"
-                  fontSize={isResponsive ? "21px" : "31px"}
+                  className="text-center mb-5"
+                  fontSize={isResponsive ? "21px" : "50px"}
+                  lh={isResponsive ? "27px" : "57px"}
                   color="#db5c4d"
-                  lh={isResponsive ? "27px" : null}
+                  family="'Montserrat', sans-serif"
+                  weight="700"
                 >
                   Meet the Visionaries
                   <br /> behind AuralNexus
@@ -409,12 +429,7 @@ export default function Home() {
                           <Wrapper
                             className={`d-flex flex-column align-items-center justify-content-end gap-4`}
                           >
-                            <Wrapper
-                              style={{
-                                boxShadow: " 1px 1px 30px 1px white",
-                                borderRadius: "50%",
-                              }}
-                            >
+                            <Wrapper>
                               <Image
                                 src={val.profile}
                                 alt="haider"
@@ -449,17 +464,21 @@ export default function Home() {
               </Wrapper>
             </Wrapper>
             <Wrapper
+              id="contact"
               className="d-flex flex-column align-items-center justify-content-center gap-3"
               mt={isResponsive ? "4rem" : "10rem"}
-              id="contact"
             >
               <H1
-                className="text-center"
-                fontSize={isResponsive ? "21px" : "31px"}
-                lh={isResponsive ? "27px" : null}
+                className="text-center mb-5"
+                fontSize={isResponsive ? "21px" : "50px"}
+                lh={isResponsive ? "27px" : "57px"}
                 color="#db5c4d"
+                family="'Montserrat', sans-serif"
+                weight="700"
               >
-                {"We'd Love to Hear From You"}
+                Intrested in Project?
+                <br />
+                Request a pitch today
               </H1>
               <Spacer height={isResponsive ? "10px" : "30px"} />
               <Wrapper
@@ -468,7 +487,7 @@ export default function Home() {
               >
                 <Input
                   type="text"
-                  placeholder="Email"
+                  placeholder="enter your email"
                   width={isResponsive ? "90%" : "50%"}
                 />
               </Wrapper>
@@ -496,7 +515,12 @@ export default function Home() {
               />
               <Wrapper className="d-flex flex-row align-items-center justify-content-center gap-3">
                 <LinkedInIcon style={{ fontSize: "25px" }} />
-                <ShopIcon style={{ fontSize: "25px" }} />
+                <Image
+                  src="/assets/play.svg"
+                  alt="app store"
+                  width="25px"
+                  height="25px"
+                />
                 <Image
                   src="/assets/app.svg"
                   alt="app store"
@@ -535,7 +559,7 @@ export default function Home() {
                   fontColor="gray"
                   family="Poppins"
                 >
-                  auralnexus@gmail.com
+                  All Rights Reverseved &copy;
                 </Wrapper>
               </Wrapper>
             </Wrapper>
