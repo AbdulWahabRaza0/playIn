@@ -9,7 +9,7 @@ const menuitems = [
   { name: "About", link: "#about" },
   { name: "What app do?", link: "#app" },
   {
-    name: "experience",
+    name: "visit now",
     link: "#experience",
   },
   {
@@ -36,7 +36,7 @@ const Navbar = () => {
   });
   return (
     <>
-      <Wrapper width="100%" bg="black">
+      <Wrapper width="100%" bg="black" style={{ zIndex: 10000 }}>
         <Wrapper
           ps={isResponsive ? "30px" : "50px"}
           pe="3%"

@@ -12,13 +12,20 @@ import {
   SplitWrapper,
   HeadingComp,
   MarqueeComp,
+  Row,
+  Col,
 } from "@/components/Layout";
 import { Spacer } from "@/components/Spacer";
 import { H1, P } from "@/components/Typography";
 import { PrimaryButton } from "@/components/Buttons";
 import { Input } from "../components/Input";
 import LinkedInIcon from "@mui/icons-material/LinkedIn";
-import { Header1Data, TeamData, RoadmapData } from "../utils";
+import {
+  Header1Data,
+  TeamData,
+  RoadmapData,
+  ResponsiveRoadMapData,
+} from "../utils";
 import "bootstrap/dist/css/bootstrap.min.css";
 import AOS from "aos";
 import "aos/dist/aos.css";
@@ -39,8 +46,9 @@ export default function Home() {
       <>
         <Navbar />
         <ScrollWrapper id="home">
-          <Container pt="40px" id="about">
+          <Container pt="40px">
             <Wrapper
+              id="about"
               height="auto"
               className="d-flex flex-row align-items-center"
               style={{ zIndex: 1, position: "relative" }}
@@ -51,7 +59,7 @@ export default function Home() {
                 )}
                 <Wrapper
                   width={isResponsive ? "100%" : "650px"}
-                  mt={isResponsive ? "10vh" : "15vh"}
+                  mt={isResponsive ? "13vh" : "15vh"}
                   ms={isResponsive ? "" : "30px"}
                   me={isResponsive ? "" : "30px"}
                   mb={isResponsive ? "10vh" : ""}
@@ -61,8 +69,8 @@ export default function Home() {
                 >
                   <H1
                     style={{ height: !isResponsive ? "180px" : "" }}
-                    lh={isResponsive ? "41px" : "68px"}
-                    fontSize={isResponsive ? "31px" : "41px"}
+                    lh={isResponsive ? "61px" : "68px"}
+                    fontSize={isResponsive ? "41px" : "41px"}
                     family="'Montserrat', sans-serif"
                     weight="900"
                   >
@@ -158,8 +166,8 @@ export default function Home() {
               })}
             </Wrapper>
           </Wrapper>
-          <Container id="devices">
-            <Wrapper mt={isResponsive ? "10vh" : ""}>
+          <Container>
+            <Wrapper id="devices" mt={isResponsive ? "10vh" : ""}>
               <HeadingComp
                 heading={
                   <>
@@ -170,11 +178,26 @@ export default function Home() {
                 }
               />
               <Wrapper>
-                <Image
-                  src="/assets/devices.png"
-                  alt="devices"
-                  className="img-fluid"
-                />
+                {isResponsive ? (
+                  <>
+                    {" "}
+                    <Image
+                      style={{ marginTop: "-22vh", marginBottom: "-20vh" }}
+                      src="/assets/responsiveDevices.svg"
+                      alt="devices"
+                      className="img-fluid"
+                    />
+                  </>
+                ) : (
+                  <>
+                    {" "}
+                    <Image
+                      src="/assets/devices.png"
+                      alt="devices"
+                      className="img-fluid"
+                    />
+                  </>
+                )}
               </Wrapper>
             </Wrapper>
           </Container>
@@ -186,8 +209,8 @@ export default function Home() {
                     key={index}
                     src={imgSrc}
                     alt="app store"
-                    width="70px"
-                    height="70px"
+                    width={isResponsive ? "25px" : "70px"}
+                    height={isResponsive ? "25px" : "70px"}
                   />
                 </>
               );
@@ -219,12 +242,60 @@ export default function Home() {
             </PrimaryButton>
           </Wrapper>
 
-          <Container id="roadmap">
-            <Wrapper mt={isResponsive ? "5vh" : ""}>
+          <Container>
+            <Wrapper id="roadmap" mt={isResponsive ? "5vh" : ""}>
               <HeadingComp heading={<>Roadmap</>} />
               <Wrapper>
                 {isResponsive ? (
-                  <Image src="/assets/road3.svg" alt="roadmap" />
+                  <>
+                    <Wrapper position="relative">
+                      <Image src="/assets/road3.svg" alt="roadmap" />
+                      <Wrapper
+                        position="absolute"
+                        style={{ top: 0, right: 0, zIndex: 100 }}
+                      >
+                        {ResponsiveRoadMapData.right.data.map((val, index) => {
+                          return (
+                            <>
+                              <Wrapper
+                                mt={index === 0 ? "30px" : "130px"}
+                                key={index}
+                              >
+                                {val.lineData.map((line, lineIndex) => {
+                                  return (
+                                    <>
+                                      <Wrapper key={lineIndex}>{line}</Wrapper>
+                                    </>
+                                  );
+                                })}
+                              </Wrapper>
+                            </>
+                          );
+                        })}
+                      </Wrapper>
+
+                      <Wrapper
+                        position="absolute"
+                        style={{ top: 0, left: 0, zIndex: 100 }}
+                      >
+                        {ResponsiveRoadMapData.left.data.map((val, index) => {
+                          return (
+                            <>
+                              <Wrapper mt={"130px"} key={index}>
+                                {val.lineData.map((line, lineIndex) => {
+                                  return (
+                                    <>
+                                      <Wrapper key={lineIndex}>{line}</Wrapper>
+                                    </>
+                                  );
+                                })}
+                              </Wrapper>
+                            </>
+                          );
+                        })}
+                      </Wrapper>
+                    </Wrapper>
+                  </>
                 ) : (
                   <>
                     {" "}
@@ -237,17 +308,15 @@ export default function Home() {
                               return (
                                 <Wrapper
                                   key={lineIndex}
-                                  mt={lineIndex === 0 ? "-30px" : ""}
-                                  className="d-flex flex-row align-items-center justify-content-center"
+                                  mt={(lineIndex === 0 ? -30 : 0) + "px"}
+                                  ms="16%"
+                                  me="16%"
+                                  className="d-flex flex-row align-items-center justify-content-between"
                                 >
                                   {line.lineData.map((lineData, dataIndex) => {
                                     return (
                                       <>
-                                        <Wrapper
-                                          key={dataIndex}
-                                          ms="10%"
-                                          me="10%"
-                                        >
+                                        <Wrapper key={dataIndex}>
                                           {lineData}
                                         </Wrapper>
                                       </>
@@ -265,8 +334,8 @@ export default function Home() {
               </Wrapper>
             </Wrapper>
           </Container>
-          <Container id="team">
-            <Wrapper mt={isResponsive ? "5vh" : "5%"}>
+          <Container>
+            <Wrapper id="team" mt={isResponsive ? "5vh" : "5%"}>
               <Wrapper className="d-flex flex-row align-items-center justify-content-center">
                 <Wrapper>
                   <HeadingComp
@@ -279,7 +348,7 @@ export default function Home() {
                   />
                 </Wrapper>
               </Wrapper>
-              <Wrapper id="team">
+              <Wrapper>
                 <Wrapper
                   className={`d-flex flex-row align-items-center  ${
                     isResponsive
@@ -341,7 +410,7 @@ export default function Home() {
               </Wrapper>
             </Wrapper>
             <Wrapper
-              mt="10%"
+              pt="10%"
               id="contact"
               className="d-flex flex-column align-items-center justify-content-center gap-3"
             >
@@ -362,7 +431,7 @@ export default function Home() {
                 className="d-flex flex-row align-items-center justify-content-center"
               >
                 <Input
-                  type="text"
+                  type="email"
                   placeholder="enter your email"
                   width={isResponsive ? "90%" : "50%"}
                 />
@@ -379,8 +448,8 @@ export default function Home() {
             </Wrapper>
             <Spacer height="40px" />
           </Container>
-          <Container id="footer">
-            <Wrapper>
+          <Container>
+            <Wrapper id="footer">
               <Wrapper width="100%" height="0.5px" bg="white"></Wrapper>
               <Wrapper className="d-flex flex-column align-items-center justify-content-center">
                 <Image
@@ -390,20 +459,27 @@ export default function Home() {
                   height="120px"
                 />
                 <Wrapper className="d-flex flex-row align-items-center justify-content-center gap-3">
-                  <LinkedInIcon style={{ fontSize: "25px" }} />
-                  {["/assets/play.svg", "/assets/app.svg"].map((val, index) => {
-                    return (
-                      <>
-                        <Image
-                          key={index}
-                          src={val}
-                          alt="app store"
-                          width="25px"
-                          height="25px"
-                        />
-                      </>
-                    );
-                  })}
+                  {["/assets/play.svg", "", "/assets/app.svg"].map(
+                    (val, index) => {
+                      return (
+                        <>
+                          {index === 1 ? (
+                            <>
+                              <LinkedInIcon style={{ fontSize: "25px" }} />
+                            </>
+                          ) : (
+                            <Image
+                              key={index}
+                              src={val}
+                              alt="app store"
+                              width="25px"
+                              height="25px"
+                            />
+                          )}
+                        </>
+                      );
+                    }
+                  )}
                 </Wrapper>
                 <Wrapper
                   width="100%"

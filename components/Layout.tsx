@@ -129,8 +129,8 @@ const MarqueeComp = () => {
       <SpanHeading>Articles Voiced by Icons</SpanHeading> -{" "}
       <HeadingAlt green>Quick AI Abstracts</HeadingAlt> -{" "}
       <SpanHeading>Perfecting Editorial Pieces</SpanHeading> -{" "}
-      <HeadingAlt green>BET TO WIN</HeadingAlt> -{" "}
-      <SpanHeading>Showcasing Publications</SpanHeading> -{" "}
+      <HeadingAlt green>Showcasing Publications</HeadingAlt> -{" "}
+      <SpanHeading>Explore Engaging Content</SpanHeading> -
     </>
   );
 };
@@ -216,7 +216,7 @@ const SplitWrapper = ({ left, src, headline, text }: any) => {
             </Wrapper>
             <Wrapper>
               <Wrapper
-                mt={isResponsive ? "-10vh" : ""}
+                mt={isResponsive ? "-13vh" : ""}
                 className={`d-flex flex-column justify-content-center ${
                   isResponsive ? "text-center" : "text-end align-items-end"
                 }`}
@@ -258,7 +258,7 @@ const SplitWrapper = ({ left, src, headline, text }: any) => {
               }`}
             >
               <Wrapper
-                mt={isResponsive ? "-10vh" : ""}
+                mt={isResponsive ? "-13vh" : ""}
                 ps={isResponsive ? "" : "150px"}
                 className={`d-flex flex-column justify-content-center gap-2 ${
                   isResponsive

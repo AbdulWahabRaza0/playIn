@@ -1,3 +1,5 @@
+import { P } from "./components/Typography";
+
 export const Header1Data = [
   {
     headline: (
@@ -9,8 +11,9 @@ export const Header1Data = [
     ),
     text: (
       <>
-        Listen to your published articles narrated by
-        <br /> celebrities like Elon Musk, Kavin Hart <br /> and more.
+        Listen to your articles published on 100 <br /> of reputable websites &
+        auralnexus
+        <br /> narratted by popular celebs of any custom voice
       </>
     ),
     src: "/assets/audio.png",
@@ -35,16 +38,15 @@ export const Header1Data = [
   {
     headline: (
       <>
-        Edit to Enhance <br />
-        {"Article's"}
-        <br /> Readability
+        Perfecting the <br />
+        Contents
       </>
     ),
     text: (
       <>
-        Edit summaries and tags
-        <br /> to perfection, tailoring them
-        <br /> to your prefrences.
+        Super impose AI generated
+        <br /> summaries, with the touch
+        <br /> of your own insights.
       </>
     ),
     src: "/assets/reading.png",
@@ -58,9 +60,8 @@ export const Header1Data = [
     ),
     text: (
       <>
-        Let auralnexus suggest relevent
-        <br /> tags, and customize them to
-        <br /> optimize your content.
+        Showcase your content to the
+        <br /> entire Auralnexus network
       </>
     ),
 
@@ -125,6 +126,7 @@ export const RoadmapData = [
     data: [
       { lineData: ["dummy", "dummy", "dummy"] },
       { lineData: ["dummy", "dummy", "dummy"] },
+      { lineData: ["dummy", "", "dummy"] },
     ],
   },
   {
@@ -132,6 +134,23 @@ export const RoadmapData = [
     data: [
       { lineData: ["dummy", "dummy", "dummy"] },
       { lineData: ["dummy", "dummy", "dummy"] },
+      { lineData: ["dummy", "", ""] },
     ],
   },
 ];
+export const ResponsiveRoadMapData = {
+  left: {
+    data: [
+      { lineData: ["dummy", "dummy", "dummy"] },
+      { lineData: ["dummy", "dummy", "dummy"] },
+      { lineData: ["dummy", "", "dummy"] },
+    ],
+  },
+  right: {
+    data: [
+      { lineData: ["dummy", "dummy", "dummy"] },
+      { lineData: ["dummy", "dummy", "dummy"] },
+      { lineData: ["dummy", "", "dummy"] },
+    ],
+  },
+};

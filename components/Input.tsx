@@ -11,6 +11,7 @@ const Input = styled.input<Props>`
   color: white;
   background-color: black;
   border: 1px solid white;
-  font-size: small;
+  font-size: 18px;
+  font-family: Arial, Helvetica, sans-serif;
 `;
 export { Input };
