@@ -256,7 +256,7 @@ const SplitWrapper = ({ left, src, headline, text }: any) => {
               }`}
             >
               <Wrapper
-              ps={isResponsive?"":"100px"}
+                ps={isResponsive ? "" : "100px"}
                 className={`d-flex flex-column justify-content-center gap-2 ${
                   isResponsive
                     ? "text-center align-items-center"

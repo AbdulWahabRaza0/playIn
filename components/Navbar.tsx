@@ -13,12 +13,12 @@ const menuitems = [
     link: "#experience",
   },
   {
-    name: "Join",
-    link: "#join",
+    name: "Devices",
+    link: "#devices",
   },
   {
     name: "Roadmap",
-    link: "#road",
+    link: "#roadmap",
   },
   {
     name: "Team",

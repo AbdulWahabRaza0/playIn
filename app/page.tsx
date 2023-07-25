@@ -162,11 +162,11 @@ export default function Home() {
             >
               <Wrapper className="d-flex flex-row gap-5">
                 {!isResponsive && (
-                  <Wrapper bg="white" height="75vh" width="0.7px"></Wrapper>
+                  <Wrapper bg="white" height="65vh" width="0.7px"></Wrapper>
                 )}
                 <Wrapper
-                  width={isResponsive ? "100%" : "70%"}
-                  mt={isResponsive ? "5vh" : "25vh"}
+                  width={isResponsive ? "100%" : "650px"}
+                  mt={isResponsive ? "5vh" : "18vh"}
                   ms={isResponsive ? "" : "30px"}
                   me={isResponsive ? "" : "30px"}
                   className={`d-flex flex-column justify-content-start gap-2 ${
@@ -176,11 +176,20 @@ export default function Home() {
                   <H1
                     style={{ height: !isResponsive ? "180px" : "" }}
                     lh={isResponsive ? "37px" : "62px"}
-                    fontSize={isResponsive ? "20px" : "37px"}
+                    fontSize={isResponsive ? "20px" : "41px"}
                     family="'Montserrat', sans-serif"
                     weight="900"
                   >
-                    PRODUCTIVITY REDEFINED
+                    <span
+                      style={{
+                        fontSize: "21px",
+                        color: "gray",
+                        lineHeight: "18px",
+                      }}
+                    >
+                      PRODUCTIVITY REDEFINED
+                    </span>
+
                     <TypeWriterComp
                       text={"LEARN MORE IN THE VOICES YOU LIKE"}
                     />
@@ -261,7 +270,7 @@ export default function Home() {
               )}
             </Wrapper>
           </Container>
-          <Wrapper id="app" mt={"10%"}>
+          <Wrapper id="app" mt={"5%"}>
             <H1
               className={isResponsive ? "mb-0 text-center" : "text-center mb-5"}
               fontSize={isResponsive ? "21px" : "50px"}
@@ -305,7 +314,7 @@ export default function Home() {
               </Wrapper>
             </Wrapper>
           </Wrapper>
-            <Container>
+          <Container>
             <Wrapper id="devices">
               <H1
                 className="text-center mb-5"
@@ -333,7 +342,7 @@ export default function Home() {
             mt={isResponsive ? "10%" : "3%"}
             bg="white"
             width="100%"
-            height="300px"
+            height="400px"
             className="d-flex flex-column align-items-center justify-content-center gap-4"
           >
             <H1
@@ -351,11 +360,9 @@ export default function Home() {
               Visit now
             </PrimaryButton>
           </Wrapper>
-        
-          <Container></Container>
-          
+
           <Container>
-            <Wrapper id="roadmap">
+            <Wrapper id="roadmap" mt="30px">
               <H1
                 className="text-center mb-5"
                 fontSize={isResponsive ? "21px" : "50px"}
@@ -373,26 +380,56 @@ export default function Home() {
                   <>
                     {" "}
                     <Image src="/assets/road1.svg" alt="roadmap" />
-                    <Wrapper mt="-30px" className="d-flex flex-row align-items-center justify-content-center">
-<Wrapper ms="10%" me="10%">Dummy1</Wrapper>
-<Wrapper ms="10%" me="10%">Dummy2</Wrapper>
-<Wrapper ms="10%" me="10%">Dummy3</Wrapper>
+                    <Wrapper
+                      mt="-30px"
+                      className="d-flex flex-row align-items-center justify-content-center"
+                    >
+                      <Wrapper ms="10%" me="10%">
+                        Dummy1
+                      </Wrapper>
+                      <Wrapper ms="10%" me="10%">
+                        Dummy2
+                      </Wrapper>
+                      <Wrapper ms="10%" me="10%">
+                        Dummy3
+                      </Wrapper>
                     </Wrapper>
-                     <Wrapper className="d-flex flex-row align-items-center justify-content-center">
-<Wrapper ms="10%" me="10%">Dummy1</Wrapper>
-<Wrapper ms="10%" me="10%">Dummy2</Wrapper>
-<Wrapper ms="10%" me="10%">Dummy3</Wrapper>
+                    <Wrapper className="d-flex flex-row align-items-center justify-content-center">
+                      <Wrapper ms="10%" me="10%">
+                        Dummy1
+                      </Wrapper>
+                      <Wrapper ms="10%" me="10%">
+                        Dummy2
+                      </Wrapper>
+                      <Wrapper ms="10%" me="10%">
+                        Dummy3
+                      </Wrapper>
                     </Wrapper>
                     <Image src="/assets/road2.svg" alt="roadmap" />
-                      <Wrapper mt="-30px" className="d-flex flex-row align-items-center justify-content-center">
-<Wrapper ms="10%" me="10%">Dummy1</Wrapper>
-<Wrapper ms="10%" me="10%">Dummy2</Wrapper>
-<Wrapper ms="10%" me="10%">Dummy3</Wrapper>
+                    <Wrapper
+                      mt="-30px"
+                      className="d-flex flex-row align-items-center justify-content-center"
+                    >
+                      <Wrapper ms="10%" me="10%">
+                        Dummy1
+                      </Wrapper>
+                      <Wrapper ms="10%" me="10%">
+                        Dummy2
+                      </Wrapper>
+                      <Wrapper ms="10%" me="10%">
+                        Dummy3
+                      </Wrapper>
                     </Wrapper>
-                    <Wrapper  className="d-flex flex-row align-items-center justify-content-center">
-<Wrapper ms="10%" me="10%">Dummy1</Wrapper>
-<Wrapper ms="10%" me="10%">Dummy2</Wrapper>
-<Wrapper ms="10%" me="10%">Dummy3</Wrapper>
+                    <Wrapper className="d-flex flex-row align-items-center justify-content-center">
+                      <Wrapper ms="10%" me="10%">
+                        Dummy1
+                      </Wrapper>
+                      <Wrapper ms="10%" me="10%">
+                        Dummy2
+                      </Wrapper>
+                      <Wrapper ms="10%" me="10%">
+                        Dummy3
+                      </Wrapper>
                     </Wrapper>
                   </>
                 )}
