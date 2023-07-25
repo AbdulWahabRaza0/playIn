@@ -142,8 +142,8 @@ const HeadingComp = ({ heading }: any) => {
     <>
       <H1
         className={isResponsive ? "mb-0 text-center" : "text-center mb-5"}
-        fontSize={isResponsive ? "21px" : "50px"}
-        lh={isResponsive ? "27px" : "57px"}
+        fontSize={isResponsive ? "31px" : "50px"}
+        lh={isResponsive ? "41px" : "57px"}
         color="#db5c4d"
         family="'Montserrat', sans-serif"
         weight="700"
@@ -193,8 +193,10 @@ const SplitWrapper = ({ left, src, headline, text }: any) => {
         <>
           <Wrapper
             width={isResponsive ? "100%" : "88.5%"}
-            className={`d-flex flex-row justify-content-between align-items-center ${
-              isResponsive ? "flex-wrap" : "gap-5"
+            className={`d-flex flex-row  align-items-center ${
+              isResponsive
+                ? "flex-wrap text-center justify-content-center"
+                : "gap-5 justify-content-between"
             }`}
           >
             <Wrapper
@@ -214,6 +216,7 @@ const SplitWrapper = ({ left, src, headline, text }: any) => {
             </Wrapper>
             <Wrapper>
               <Wrapper
+                mt={isResponsive ? "-10vh" : ""}
                 className={`d-flex flex-column justify-content-center ${
                   isResponsive ? "text-center" : "text-end align-items-end"
                 }`}
@@ -241,8 +244,10 @@ const SplitWrapper = ({ left, src, headline, text }: any) => {
           {" "}
           <Wrapper
             width={isResponsive ? "100%" : "99%"}
-            className={`d-flex flex-row justify-content-between align-items-center ${
-              isResponsive ? "flex-wrap-reverse" : ""
+            className={`d-flex flex-row align-items-center ${
+              isResponsive
+                ? "flex-wrap-reverse justify-content-center text-center"
+                : "justify-content-between"
             }`}
           >
             <Wrapper
@@ -253,6 +258,7 @@ const SplitWrapper = ({ left, src, headline, text }: any) => {
               }`}
             >
               <Wrapper
+                mt={isResponsive ? "-10vh" : ""}
                 ps={isResponsive ? "" : "150px"}
                 className={`d-flex flex-column justify-content-center gap-2 ${
                   isResponsive

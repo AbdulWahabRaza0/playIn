@@ -51,17 +51,18 @@ export default function Home() {
                 )}
                 <Wrapper
                   width={isResponsive ? "100%" : "650px"}
-                  mt={isResponsive ? "5vh" : "15vh"}
+                  mt={isResponsive ? "10vh" : "15vh"}
                   ms={isResponsive ? "" : "30px"}
                   me={isResponsive ? "" : "30px"}
+                  mb={isResponsive ? "10vh" : ""}
                   className={`d-flex flex-column justify-content-start gap-2 ${
                     isResponsive && "align-items-center text-center"
                   }`}
                 >
                   <H1
                     style={{ height: !isResponsive ? "180px" : "" }}
-                    lh={isResponsive ? "37px" : "68px"}
-                    fontSize={isResponsive ? "20px" : "41px"}
+                    lh={isResponsive ? "41px" : "68px"}
+                    fontSize={isResponsive ? "31px" : "41px"}
                     family="'Montserrat', sans-serif"
                     weight="900"
                   >
@@ -69,7 +70,7 @@ export default function Home() {
                       style={{
                         fontSize: "24px",
                         color: "gray",
-                        lineHeight: "18px",
+                        lineHeight: isResponsive ? "71px" : "18px",
                       }}
                     >
                       PRODUCTIVITY REDEFINED
@@ -99,8 +100,8 @@ export default function Home() {
 
             <Wrapper
               id="marquee"
-              mt={isResponsive ? "0px" : ""}
-              mb={isResponsive ? "20px" : ""}
+              mt={isResponsive ? "5vh" : ""}
+              mb={isResponsive ? "5vh" : ""}
             >
               {isResponsive ? (
                 <div style={{ paddingLeft: "0px", overflow: "hidden" }}>
@@ -158,7 +159,7 @@ export default function Home() {
             </Wrapper>
           </Wrapper>
           <Container id="devices">
-            <Wrapper>
+            <Wrapper mt={isResponsive ? "10vh" : ""}>
               <HeadingComp
                 heading={
                   <>
@@ -219,7 +220,7 @@ export default function Home() {
           </Wrapper>
 
           <Container id="roadmap">
-            <Wrapper>
+            <Wrapper mt={isResponsive ? "5vh" : ""}>
               <HeadingComp heading={<>Roadmap</>} />
               <Wrapper>
                 {isResponsive ? (
@@ -265,7 +266,7 @@ export default function Home() {
             </Wrapper>
           </Container>
           <Container id="team">
-            <Wrapper mt={"5%"}>
+            <Wrapper mt={isResponsive ? "5vh" : "5%"}>
               <Wrapper className="d-flex flex-row align-items-center justify-content-center">
                 <Wrapper>
                   <HeadingComp
@@ -344,7 +345,7 @@ export default function Home() {
               id="contact"
               className="d-flex flex-column align-items-center justify-content-center gap-3"
             >
-              <Wrapper>
+              <Wrapper mt={isResponsive ? "5vh" : ""}>
                 <HeadingComp
                   heading={
                     <>
