@@ -182,7 +182,7 @@ export default function Home() {
                   <>
                     {" "}
                     <Image
-                      style={{ marginTop: "-22vh", marginBottom: "-20vh" }}
+                      style={{ marginTop: "-10vh", marginBottom: "-15vh" }}
                       src="/assets/responsiveDevices.svg"
                       alt="devices"
                       className="img-fluid"
@@ -432,7 +432,7 @@ export default function Home() {
               >
                 <Input
                   type="email"
-                  placeholder="enter your email"
+                  placeholder="Enter Your Email"
                   width={isResponsive ? "90%" : "50%"}
                 />
               </Wrapper>

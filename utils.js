@@ -1,5 +1,3 @@
-import { P } from "./components/Typography";
-
 export const Header1Data = [
   {
     headline: (
@@ -104,19 +102,19 @@ export const TeamData = [
   {
     profile: "/assets/haider.jpg",
     name: "Gullam Haider",
-    desc: "This is description",
+    desc: "Tag Line",
     position: "Founder and CEO",
   },
   {
     profile: "/assets/authornate.jpg",
     name: "Authornate",
-    desc: "This is description",
+    desc: "Tag Line",
     position: "Technical Team",
   },
   {
     profile: "/assets/haider.jpg",
     name: "Rohan",
-    desc: "This is description",
+    desc: "Tag Line",
     position: "Advisor",
   },
 ];

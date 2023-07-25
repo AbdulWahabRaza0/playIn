@@ -65,10 +65,11 @@ const Navbar = () => {
                   bg="#282834"
                   width={isResponsive ? "90vw" : "auto"}
                   borderRadius="40px"
-                  height={isResponsive ? "100vh" : "60px"}
+                  height={isResponsive ? "auto" : "60px"}
+                  mt={isResponsive ? "60%" : ""}
                   className={
                     isResponsive
-                      ? "d-flex flex-column align-items-center justify-content-end ps-2 pe-2 pt-2 pb-2 gap-4"
+                      ? "d-flex flex-column align-items-center justify-content-end ps-2 pe-2 pt-5 pb-2 gap-4"
                       : "d-flex flex-row align-items-center justify-content-center ps-4 pe-4 gap-4"
                   }
                 >
