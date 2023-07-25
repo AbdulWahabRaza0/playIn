@@ -4,138 +4,25 @@ import Navbar from "@/components/Navbar";
 import {
   Wrapper,
   useMediaQuery,
-  MarqueeSlider,
-  SimpleCard,
   Container,
   TypeWriterComp,
-  Row,
-  Col,
   Image,
   MarqueeContainer,
   ScrollWrapper,
   SplitWrapper,
+  HeadingComp,
+  MarqueeComp,
 } from "@/components/Layout";
 import { Spacer } from "@/components/Spacer";
-import { H1, P, HeadingAlt, SpanHeading } from "@/components/Typography";
+import { H1, P } from "@/components/Typography";
 import { PrimaryButton } from "@/components/Buttons";
 import { Input } from "../components/Input";
-// import Logo from '../public/assets/logo.svg';
 import LinkedInIcon from "@mui/icons-material/LinkedIn";
-import ShopIcon from "@mui/icons-material/Shop";
+import { Header1Data, TeamData, RoadmapData } from "../utils";
 import "bootstrap/dist/css/bootstrap.min.css";
 import AOS from "aos";
 import "aos/dist/aos.css";
-const Header1Data = [
-  {
-    headline: (
-      <>
-        Celebrity-Voiced
-        <br /> Article
-        <br /> Playback
-      </>
-    ),
-    text: (
-      <>
-        Listen to your published articles narrated by
-        <br /> celebrities like Elon Musk, Kavin Hart <br /> and more.
-      </>
-    ),
-    src: "/assets/audio.png",
-  },
-  {
-    headline: (
-      <>
-        AI Powered <br />
-        Article Summaries
-      </>
-    ),
-    text: (
-      <>
-        Enter any article and recieve
-        <br /> three types of AI generated
-        <br /> summaries.
-      </>
-    ),
-    src: "/assets/ai.png",
-  },
-  {
-    headline: (
-      <>
-        Edit to Enhance <br />
-        {"Article's"}
-        <br /> Readability
-      </>
-    ),
-    text: (
-      <>
-        Edit summaries and tags
-        <br /> to perfection, tailoring them
-        <br /> to your prefrences.
-      </>
-    ),
-    src: "/assets/reading.png",
-  },
-  {
-    headline: <>Showcasing Publications</>,
-    text: (
-      <>
-        Let auralnexus suggest relevent
-        <br /> tags, and customize them to
-        <br /> optimize your content.
-      </>
-    ),
 
-    src: "/assets/article.png",
-  },
-  {
-    headline: (
-      <>
-        Explore Engaging
-        <br /> Content
-      </>
-    ),
-    text: (
-      <>
-        Empower your writing with AI generated
-        <br /> responses for unique and
-        <br /> engaging articles.
-      </>
-    ),
-
-    src: "/assets/search.png",
-  },
-  {
-    headline: (
-      <>
-        Get Unique generative <br /> Thumbnals
-      </>
-    ),
-    text: (
-      <>
-        Auralnexus creates captivating <br /> images for your articles using{" "}
-        <br /> advanced AI technologes.
-      </>
-    ),
-    src: "/assets/image.png",
-  },
-];
-const TeamData = [
-  {
-    profile: "/assets/haider.jpg",
-    name: "Gullam Haider",
-    desc: "Founder and CEO",
-  },
-  {
-    profile: "/assets/authornate.jpg",
-    name: "Authornate",
-    desc: "Technical Team",
-  },
-  {
-    profile: "/assets/haider.jpg",
-    name: "Rohan Advisor",
-    desc: "Founder and CEO",
-  },
-];
 export default function Home() {
   const [mount, setMount] = useState(false);
   const [questionState, setQuestionState] = useState(-1);
@@ -151,11 +38,9 @@ export default function Home() {
     mount && (
       <>
         <Navbar />
-        <ScrollWrapper>
-          <Container>
-            <Spacer height="10px" />
+        <ScrollWrapper id="home">
+          <Container pt="40px" id="about">
             <Wrapper
-              id="about"
               height="auto"
               className="d-flex flex-row align-items-center"
               style={{ zIndex: 1, position: "relative" }}
@@ -166,7 +51,7 @@ export default function Home() {
                 )}
                 <Wrapper
                   width={isResponsive ? "100%" : "650px"}
-                  mt={isResponsive ? "5vh" : "18vh"}
+                  mt={isResponsive ? "5vh" : "15vh"}
                   ms={isResponsive ? "" : "30px"}
                   me={isResponsive ? "" : "30px"}
                   className={`d-flex flex-column justify-content-start gap-2 ${
@@ -175,14 +60,14 @@ export default function Home() {
                 >
                   <H1
                     style={{ height: !isResponsive ? "180px" : "" }}
-                    lh={isResponsive ? "37px" : "62px"}
+                    lh={isResponsive ? "37px" : "68px"}
                     fontSize={isResponsive ? "20px" : "41px"}
                     family="'Montserrat', sans-serif"
                     weight="900"
                   >
                     <span
                       style={{
-                        fontSize: "21px",
+                        fontSize: "24px",
                         color: "gray",
                         lineHeight: "18px",
                       }}
@@ -194,22 +79,6 @@ export default function Home() {
                       text={"LEARN MORE IN THE VOICES YOU LIKE"}
                     />
                   </H1>
-
-                  {isResponsive && (
-                    <Wrapper className="mt-3 mb-5">
-                      <PrimaryButton
-                        family="'Poppins','sans-serif'"
-                        fontColor="black"
-                        weight="700"
-                        height="51px"
-                        width="170px"
-                        borderRadius="25px"
-                        fontSize="18px"
-                      >
-                        Get Started
-                      </PrimaryButton>
-                    </Wrapper>
-                  )}
                 </Wrapper>
               </Wrapper>
             </Wrapper>
@@ -229,6 +98,7 @@ export default function Home() {
             />
 
             <Wrapper
+              id="marquee"
               mt={isResponsive ? "0px" : ""}
               mb={isResponsive ? "20px" : ""}
             >
@@ -240,11 +110,7 @@ export default function Home() {
                     marqueed={isResponsive}
                     primary={true}
                   >
-                    <SpanHeading>Articles Voiced by Icons</SpanHeading> -{" "}
-                    <HeadingAlt green>Quick AI Abstracts</HeadingAlt> -{" "}
-                    <SpanHeading>Perfecting Editorial Pieces</SpanHeading> -{" "}
-                    <HeadingAlt green>BET TO WIN</HeadingAlt> -{" "}
-                    <SpanHeading>Showcasing Publications</SpanHeading> -{" "}
+                    <MarqueeComp />
                   </H1>
                   <Spacer />
                 </div>
@@ -259,11 +125,7 @@ export default function Home() {
                       primary={true}
                       className="d-flex flex-row align-items-center gap-3"
                     >
-                      <SpanHeading>Articles Voiced by Icons</SpanHeading> -{" "}
-                      <HeadingAlt green>Quick AI Abstracts</HeadingAlt> -{" "}
-                      <SpanHeading>Perfecting Editorial Pieces</SpanHeading> -{" "}
-                      <HeadingAlt green>Showcasing Publications</HeadingAlt> -{" "}
-                      <SpanHeading>Showcasing Publications</SpanHeading> -{" "}
+                      <MarqueeComp />
                     </H1>
                   </MarqueeContainer>
                 </div>
@@ -271,17 +133,15 @@ export default function Home() {
             </Wrapper>
           </Container>
           <Wrapper id="app" mt={"5%"}>
-            <H1
-              className={isResponsive ? "mb-0 text-center" : "text-center mb-5"}
-              fontSize={isResponsive ? "21px" : "50px"}
-              lh={isResponsive ? "27px" : "57px"}
-              color="#db5c4d"
-              family="'Montserrat', sans-serif"
-              weight="700"
-            >
-              incentivizing
-              <br /> your voice
-            </H1>
+            <HeadingComp
+              heading={
+                <>
+                  {" "}
+                  incentivizing
+                  <br /> your voice
+                </>
+              }
+            />
             <Wrapper gradient={true}>
               {Header1Data.map((val, index) => {
                 return (
@@ -296,38 +156,18 @@ export default function Home() {
                 );
               })}
             </Wrapper>
-
-            <Wrapper className="d-flex flex-row align-items-center justify-content-center gap-2 mt-5 mb-5">
-              <Image
-                src="/assets/play.svg"
-                alt="app store"
-                width="70px"
-                height="70px"
-              />
-              <Wrapper>
-                <Image
-                  src="/assets/app.svg"
-                  alt="app store"
-                  width="70px"
-                  height="70px"
-                />
-              </Wrapper>
-            </Wrapper>
           </Wrapper>
-          <Container>
-            <Wrapper id="devices">
-              <H1
-                className="text-center mb-5"
-                fontSize={isResponsive ? "21px" : "50px"}
-                lh={isResponsive ? "27px" : "57px"}
-                color="#db5c4d"
-                family="'Montserrat', sans-serif"
-                weight="700"
-              >
-                Join the Network from any
-                <br />
-                device of your choice
-              </H1>
+          <Container id="devices">
+            <Wrapper>
+              <HeadingComp
+                heading={
+                  <>
+                    Join the Network from any
+                    <br />
+                    device of your choice
+                  </>
+                }
+              />
               <Wrapper>
                 <Image
                   src="/assets/devices.png"
@@ -337,128 +177,108 @@ export default function Home() {
               </Wrapper>
             </Wrapper>
           </Container>
+          <Wrapper className="d-flex flex-row align-items-center justify-content-center gap-2 mt-5 mb-5">
+            {["/assets/play.svg", "/assets/app.svg"].map((imgSrc, index) => {
+              return (
+                <>
+                  <Image
+                    key={index}
+                    src={imgSrc}
+                    alt="app store"
+                    width="70px"
+                    height="70px"
+                  />
+                </>
+              );
+            })}
+          </Wrapper>
           <Wrapper
             id="experience"
+            style={{
+              backgroundImage:
+                "linear-gradient(to bottom,rgba(185, 93, 93, 0.2), rgba(185, 93, 93, 0.4))",
+            }}
             mt={isResponsive ? "10%" : "3%"}
             bg="white"
             width="100%"
             height="400px"
             className="d-flex flex-column align-items-center justify-content-center gap-4"
           >
-            <H1
-              className="text-center mb-5"
-              fontSize={isResponsive ? "21px" : "50px"}
-              lh={isResponsive ? "27px" : "57px"}
-              color="#db5c4d"
-              family="'Montserrat', sans-serif"
-              weight="700"
-            >
-              Experience the magic
-              <br /> of Auralnexus
-            </H1>
+            <HeadingComp
+              heading={
+                <>
+                  {" "}
+                  Experience the magic
+                  <br /> of Auralnexus
+                </>
+              }
+            />
             <PrimaryButton transform={true} fontSize="21px">
               Visit now
             </PrimaryButton>
           </Wrapper>
 
-          <Container>
-            <Wrapper id="roadmap" mt="30px">
-              <H1
-                className="text-center mb-5"
-                fontSize={isResponsive ? "21px" : "50px"}
-                lh={isResponsive ? "27px" : "57px"}
-                color="#db5c4d"
-                family="'Montserrat', sans-serif"
-                weight="700"
-              >
-                Roadmap
-              </H1>
+          <Container id="roadmap">
+            <Wrapper>
+              <HeadingComp heading={<>Roadmap</>} />
               <Wrapper>
                 {isResponsive ? (
                   <Image src="/assets/road3.svg" alt="roadmap" />
                 ) : (
                   <>
                     {" "}
-                    <Image src="/assets/road1.svg" alt="roadmap" />
-                    <Wrapper
-                      mt="-30px"
-                      className="d-flex flex-row align-items-center justify-content-center"
-                    >
-                      <Wrapper ms="10%" me="10%">
-                        Dummy1
-                      </Wrapper>
-                      <Wrapper ms="10%" me="10%">
-                        Dummy2
-                      </Wrapper>
-                      <Wrapper ms="10%" me="10%">
-                        Dummy3
-                      </Wrapper>
-                    </Wrapper>
-                    <Wrapper className="d-flex flex-row align-items-center justify-content-center">
-                      <Wrapper ms="10%" me="10%">
-                        Dummy1
-                      </Wrapper>
-                      <Wrapper ms="10%" me="10%">
-                        Dummy2
-                      </Wrapper>
-                      <Wrapper ms="10%" me="10%">
-                        Dummy3
-                      </Wrapper>
-                    </Wrapper>
-                    <Image src="/assets/road2.svg" alt="roadmap" />
-                    <Wrapper
-                      mt="-30px"
-                      className="d-flex flex-row align-items-center justify-content-center"
-                    >
-                      <Wrapper ms="10%" me="10%">
-                        Dummy1
-                      </Wrapper>
-                      <Wrapper ms="10%" me="10%">
-                        Dummy2
-                      </Wrapper>
-                      <Wrapper ms="10%" me="10%">
-                        Dummy3
-                      </Wrapper>
-                    </Wrapper>
-                    <Wrapper className="d-flex flex-row align-items-center justify-content-center">
-                      <Wrapper ms="10%" me="10%">
-                        Dummy1
-                      </Wrapper>
-                      <Wrapper ms="10%" me="10%">
-                        Dummy2
-                      </Wrapper>
-                      <Wrapper ms="10%" me="10%">
-                        Dummy3
-                      </Wrapper>
-                    </Wrapper>
+                    {RoadmapData.map((obj, index) => {
+                      return (
+                        <>
+                          <Wrapper key={index}>
+                            <Image src={obj.imgSrc} alt="roadmap" />
+                            {obj.data.map((line, lineIndex) => {
+                              return (
+                                <Wrapper
+                                  key={lineIndex}
+                                  mt={lineIndex === 0 ? "-30px" : ""}
+                                  className="d-flex flex-row align-items-center justify-content-center"
+                                >
+                                  {line.lineData.map((lineData, dataIndex) => {
+                                    return (
+                                      <>
+                                        <Wrapper
+                                          key={dataIndex}
+                                          ms="10%"
+                                          me="10%"
+                                        >
+                                          {lineData}
+                                        </Wrapper>
+                                      </>
+                                    );
+                                  })}
+                                </Wrapper>
+                              );
+                            })}
+                          </Wrapper>
+                        </>
+                      );
+                    })}
                   </>
                 )}
               </Wrapper>
             </Wrapper>
           </Container>
-          <Container>
-            <Wrapper id="team">
-              <Wrapper
-                className="d-flex flex-row align-items-center justify-content-center mt-5"
-                mb="7%"
-              >
-                <H1
-                  className="text-center mb-5"
-                  fontSize={isResponsive ? "21px" : "50px"}
-                  lh={isResponsive ? "27px" : "57px"}
-                  color="#db5c4d"
-                  family="'Montserrat', sans-serif"
-                  weight="700"
-                >
-                  Meet the Visionaries
-                  <br /> behind AuralNexus
-                </H1>
+          <Container id="team">
+            <Wrapper mt={"5%"}>
+              <Wrapper className="d-flex flex-row align-items-center justify-content-center">
+                <Wrapper>
+                  <HeadingComp
+                    heading={
+                      <>
+                        Meet the Visionaries
+                        <br /> behind AuralNexus
+                      </>
+                    }
+                  />
+                </Wrapper>
               </Wrapper>
-              <Wrapper
-                id="team"
-                ms={isResponsive ? "" : ""}
-                me={isResponsive ? "" : ""}
-              >
+              <Wrapper id="team">
                 <Wrapper
                   className={`d-flex flex-row align-items-center  ${
                     isResponsive
@@ -500,8 +320,10 @@ export default function Home() {
                               >
                                 {val.name}
                               </H1>
+
+                              <P className={`mb-0 text-center`}>{val.desc}</P>
                               <P color="gray" className={`mb-0 text-center`}>
-                                {val.desc}
+                                {val.position}
                               </P>
                               <Wrapper
                                 className={`d-flex flex-row align-items-center justify-content-center mt-2`}
@@ -518,23 +340,22 @@ export default function Home() {
               </Wrapper>
             </Wrapper>
             <Wrapper
+              mt="10%"
               id="contact"
               className="d-flex flex-column align-items-center justify-content-center gap-3"
-              mt={isResponsive ? "4rem" : "10rem"}
             >
-              <H1
-                className="text-center mb-5"
-                fontSize={isResponsive ? "21px" : "50px"}
-                lh={isResponsive ? "27px" : "57px"}
-                color="#db5c4d"
-                family="'Montserrat', sans-serif"
-                weight="700"
-              >
-                Intrested in Project?
-                <br />
-                Request a pitch today
-              </H1>
-              <Spacer height={isResponsive ? "10px" : "30px"} />
+              <Wrapper>
+                <HeadingComp
+                  heading={
+                    <>
+                      Intrested in Project?
+                      <br />
+                      Request a pitch today
+                    </>
+                  }
+                />
+              </Wrapper>
+
               <Wrapper
                 width="100%"
                 className="d-flex flex-row align-items-center justify-content-center"
@@ -555,56 +376,65 @@ export default function Home() {
                 Submit
               </PrimaryButton>
             </Wrapper>
-
             <Spacer height="40px" />
           </Container>
-          <Wrapper id="footer">
-            <Wrapper width="100%" height="0.5px" bg="white"></Wrapper>
-            <Wrapper className="d-flex flex-column align-items-center justify-content-center mt-4">
-              <Image
-                src="/assets/logo.svg"
-                alt="logo"
-                width="120px"
-                height="100px"
-              />
-              <Wrapper className="d-flex flex-row align-items-center justify-content-center gap-3">
-                <LinkedInIcon style={{ fontSize: "25px" }} />
+          <Container id="footer">
+            <Wrapper>
+              <Wrapper width="100%" height="0.5px" bg="white"></Wrapper>
+              <Wrapper className="d-flex flex-column align-items-center justify-content-center">
                 <Image
-                  src="/assets/play.svg"
-                  alt="app store"
-                  width="25px"
-                  height="25px"
+                  src="/assets/logo.svg"
+                  alt="logo"
+                  width="170px"
+                  height="120px"
                 />
-                <Image
-                  src="/assets/app.svg"
-                  alt="app store"
-                  width="25px"
-                  height="25px"
-                />
-              </Wrapper>
-              <Wrapper
-                width="100%"
-                className={`px-3 pb-2 mt-5 d-flex  ${
-                  isResponsive
-                    ? "justify-content-center flex-column align-items-center"
-                    : "justify-content-between flex-row align-items-end"
-                }`}
-              >
+                <Wrapper className="d-flex flex-row align-items-center justify-content-center gap-3">
+                  <LinkedInIcon style={{ fontSize: "25px" }} />
+                  {["/assets/play.svg", "/assets/app.svg"].map((val, index) => {
+                    return (
+                      <>
+                        <Image
+                          key={index}
+                          src={val}
+                          alt="app store"
+                          width="25px"
+                          height="25px"
+                        />
+                      </>
+                    );
+                  })}
+                </Wrapper>
                 <Wrapper
-                  className={`d-flex flex-column justfy-content-center ${
+                  width="100%"
+                  className={`px-3 pb-2 mt-5 d-flex  ${
                     isResponsive
-                      ? "align-items-center my-3"
-                      : "align-items-start"
+                      ? "justify-content-center flex-column align-items-center"
+                      : "justify-content-between flex-row align-items-end"
                   }`}
                 >
                   <Wrapper
-                    ls="1px"
-                    lHeight="24px"
-                    fontSize="14px"
-                    family="Poppins"
-                    fontColor="gray"
+                    className={`d-flex flex-column justfy-content-center ${
+                      isResponsive
+                        ? "align-items-center my-3"
+                        : "align-items-start"
+                    }`}
                   >
-                    Security
+                    {["Security", " Policy"].map((val, index) => {
+                      return (
+                        <>
+                          <Wrapper
+                            key={index}
+                            ls="1px"
+                            lHeight="24px"
+                            fontSize="14px"
+                            family="Poppins"
+                            fontColor="gray"
+                          >
+                            {val}
+                          </Wrapper>
+                        </>
+                      );
+                    })}
                   </Wrapper>
                   <Wrapper
                     fontSize="14px"
@@ -613,21 +443,12 @@ export default function Home() {
                     fontColor="gray"
                     family="Poppins"
                   >
-                    Policy
+                    &copy;2023 | All rights reserved.
                   </Wrapper>
-                </Wrapper>
-                <Wrapper
-                  fontSize="14px"
-                  ls="1px"
-                  lHeight="24px"
-                  fontColor="gray"
-                  family="Poppins"
-                >
-                  All Rights Reserved &copy;
                 </Wrapper>
               </Wrapper>
             </Wrapper>
-          </Wrapper>
+          </Container>
         </ScrollWrapper>
       </>
     )

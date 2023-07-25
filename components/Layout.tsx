@@ -4,7 +4,7 @@ import { Col, Row } from "react-bootstrap";
 import Marquee from "react-fast-marquee";
 import Typewriter from "typewriter-effect";
 import { Image } from "react-bootstrap";
-import { H1, P } from "./Typography";
+import { H1, P, SpanHeading, HeadingAlt } from "./Typography";
 interface WrapperProps {
   width?: string;
   border?: string;
@@ -67,10 +67,10 @@ const Wrapper = styled.div<WrapperProps>`
     background: ${(props) => props.hoverBg && props.hoverBg};
   }
 `;
-const Container = ({ children }: any) => {
+const Container = ({ children, pt }: any) => {
   return (
     <>
-      <Wrapper ps="3.29%" pe="3.4%" pt="30px" pb="1%">
+      <Wrapper ps="3.29%" pe="3.4%" pt={pt ? pt : "5%"} pb="1%">
         {children}
       </Wrapper>
     </>
@@ -103,43 +103,6 @@ const MarqueeSlider = ({ children }: any) => {
   );
 };
 
-const SimpleCard = ({ imgSrc, text }: any) => {
-  const isResponsive = useMediaQuery({
-    query: "(max-width: 752px)",
-  });
-  return (
-    <>
-      <Wrapper
-        width="80%"
-        height="auto"
-        border="2px solid gray"
-        pt="20px"
-        pb="20px"
-        ps="20px"
-        pe="20px"
-        className={`d-flex flex-row align-items-center ${
-          isResponsive
-            ? "justify-content-center flex-wrap"
-            : "justify-content-betweem"
-        }`}
-      >
-        <Wrapper ms="5%" me="3%">
-          <Image src={imgSrc} alt="header1" width="25px" height="25px" />
-        </Wrapper>
-        <Wrapper
-          ms="5%"
-          me="5%"
-          mt={isResponsive ? "" : ""}
-          className={isResponsive ? "text-center" : "text-start"}
-          fontSize={isResponsive ? "21px" : "24px"}
-          weight="200"
-        >
-          {text}
-        </Wrapper>
-      </Wrapper>
-    </>
-  );
-};
 const MarqueeContainer = styled.div`
   position: relative;
   width: 100vw;
@@ -160,6 +123,36 @@ const WrapperContainer = styled.div<Scrollprops>`
       position: relative;
     `}
 `;
+const MarqueeComp = () => {
+  return (
+    <>
+      <SpanHeading>Articles Voiced by Icons</SpanHeading> -{" "}
+      <HeadingAlt green>Quick AI Abstracts</HeadingAlt> -{" "}
+      <SpanHeading>Perfecting Editorial Pieces</SpanHeading> -{" "}
+      <HeadingAlt green>BET TO WIN</HeadingAlt> -{" "}
+      <SpanHeading>Showcasing Publications</SpanHeading> -{" "}
+    </>
+  );
+};
+const HeadingComp = ({ heading }: any) => {
+  const isResponsive = useMediaQuery({
+    query: "(max-width: 752px)",
+  });
+  return (
+    <>
+      <H1
+        className={isResponsive ? "mb-0 text-center" : "text-center mb-5"}
+        fontSize={isResponsive ? "21px" : "50px"}
+        lh={isResponsive ? "27px" : "57px"}
+        color="#db5c4d"
+        family="'Montserrat', sans-serif"
+        weight="700"
+      >
+        {heading}
+      </H1>
+    </>
+  );
+};
 const ScrollWrapper = ({ children }: any) => {
   const scrollHandler = () => {
     const hr_scrollables: any =
@@ -199,13 +192,16 @@ const SplitWrapper = ({ left, src, headline, text }: any) => {
       {!left ? (
         <>
           <Wrapper
-            className={`d-flex flex-row justify-content-evenly align-items-center ${
-              isResponsive ? "flex-wrap" : "px-5"
+            width={isResponsive ? "100%" : "88.5%"}
+            className={`d-flex flex-row justify-content-between align-items-center ${
+              isResponsive ? "flex-wrap" : "gap-5"
             }`}
           >
             <Wrapper
               className={`d-flex flex-row align-items-center ${
-                isResponsive ? "justify-content-center " : "justify-content-end"
+                isResponsive
+                  ? "justify-content-center "
+                  : "justify-content-start"
               }`}
             >
               <Image
@@ -218,11 +214,12 @@ const SplitWrapper = ({ left, src, headline, text }: any) => {
             </Wrapper>
             <Wrapper>
               <Wrapper
-                className={`d-flex flex-column justify-content-center gap-2 ${
-                  isResponsive ? "text-center" : "text-end align-items-end pe-5"
+                className={`d-flex flex-column justify-content-center ${
+                  isResponsive ? "text-center" : "text-end align-items-end"
                 }`}
               >
                 <H1
+                  family="'Montserrat', sans-serif"
                   fontSize={isResponsive ? "21px" : "41px"}
                   lh={isResponsive ? "31px" : ""}
                 >
@@ -243,12 +240,12 @@ const SplitWrapper = ({ left, src, headline, text }: any) => {
         <>
           {" "}
           <Wrapper
+            width={isResponsive ? "100%" : "99%"}
             className={`d-flex flex-row justify-content-between align-items-center ${
-              isResponsive ? "flex-wrap-reverse" : "px-1"
+              isResponsive ? "flex-wrap-reverse" : ""
             }`}
           >
             <Wrapper
-              width={isResponsive ? "" : "50%"}
               className={`d-flex flex-row align-items-center  ${
                 isResponsive
                   ? "justify-content-center text-center"
@@ -256,7 +253,7 @@ const SplitWrapper = ({ left, src, headline, text }: any) => {
               }`}
             >
               <Wrapper
-                ps={isResponsive ? "" : "100px"}
+                ps={isResponsive ? "" : "150px"}
                 className={`d-flex flex-column justify-content-center gap-2 ${
                   isResponsive
                     ? "text-center align-items-center"
@@ -264,6 +261,7 @@ const SplitWrapper = ({ left, src, headline, text }: any) => {
                 }`}
               >
                 <H1
+                  family="'Montserrat', sans-serif"
                   fontSize={isResponsive ? "21px" : "41px"}
                   lh={isResponsive ? "31px" : ""}
                 >
@@ -273,11 +271,10 @@ const SplitWrapper = ({ left, src, headline, text }: any) => {
               </Wrapper>
             </Wrapper>
             <Wrapper
-              width={isResponsive ? "" : "50%"}
               className={`d-flex flex-row align-items-center ${
                 isResponsive
                   ? "justify-content-center flex-wrap"
-                  : "justify-content-end me-4"
+                  : "justify-content-end"
               }`}
             >
               <Image
@@ -298,7 +295,6 @@ export {
   Wrapper,
   useMediaQuery,
   MarqueeSlider,
-  SimpleCard,
   Row,
   Col,
   Container,
@@ -307,4 +303,6 @@ export {
   MarqueeContainer,
   ScrollWrapper,
   SplitWrapper,
+  MarqueeComp,
+  HeadingComp,
 };
