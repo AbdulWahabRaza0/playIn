@@ -101,7 +101,7 @@ export const Header1Data = [
 export const TeamData = [
   {
     profile: "/assets/haider.jpg",
-    name: "Gullam Haider",
+    name: "Ghulam Haider",
     desc: "Tag Line",
     position: "Founder and CEO",
   },
